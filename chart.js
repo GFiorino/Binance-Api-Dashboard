@@ -1,39 +1,82 @@
-// Base URL for Binance API
-const BINANCE_API_URL = "https://api.binance.com/api/v3/ticker/price";
+// Import Chart.js via CDN (Add this script tag in index.html)
+// <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-// DOM Elements
-const cryptoDropdown = document.getElementById("crypto-dropdown");
-const priceDisplay = document.getElementById("price-display");
+// DOM Element for Chart
+const chartCanvas = document.getElementById("chart").getContext("2d");
 
-// Fetch Real-Time Price
-async function fetchPrice(symbol) {
+// Initialize Chart
+let priceChart = new Chart(chartCanvas, {
+  type: "line",
+  data: {
+    labels: [], // Timestamps
+    datasets: [
+      {
+        label: "Price (USD)",
+        data: [], // Prices
+        backgroundColor: "rgba(30, 41, 59, 0.2)", // Light blue fill
+        borderColor: "rgba(30, 41, 59, 1)", // Dark blue line
+        borderWidth: 2,
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    scales: {
+      x: {
+        title: { display: true, text: "Time" },
+      },
+      y: {
+        title: { display: true, text: "Price (USD)" },
+      },
+    },
+  },
+});
+
+// Fetch Historical Data from Binance API
+async function fetchHistoricalData(symbol) {
+  const BASE_URL = "https://api.binance.com/api/v3/klines";
+  const interval = "1h"; // 1-hour interval
+  const limit = 50; // Fetch 50 data points
+
   try {
-    const response = await fetch(`${BINANCE_API_URL}?symbol=${symbol}`);
-    if (!response.ok) throw new Error("Failed to fetch price data");
+    const response = await fetch(
+      `${BASE_URL}?symbol=${symbol}&interval=${interval}&limit=${limit}`
+    );
+    if (!response.ok) throw new Error("Failed to fetch historical data");
     const data = await response.json();
-    return parseFloat(data.price).toFixed(2); // Format price to 2 decimal places
+    return data.map((candle) => ({
+      time: new Date(candle[0]).toLocaleTimeString(), // Format timestamp
+      price: parseFloat(candle[4]), // Close price
+    }));
   } catch (error) {
-    console.error("Error fetching price:", error);
-    return "Error fetching price";
+    console.error("Error fetching historical data:", error);
+    return [];
   }
 }
 
-// Update Price Display
-async function updatePrice() {
-  const selectedSymbol = cryptoDropdown.value; // Get selected cryptocurrency
-  priceDisplay.textContent = "Loading..."; // Show loading state
-  const price = await fetchPrice(selectedSymbol);
-  if (price !== "Error fetching price") {
-    priceDisplay.textContent = `Current Price: $${price}`;
+// Update Chart Data
+async function updateChart(symbol) {
+  const historicalData = await fetchHistoricalData(symbol);
+
+  if (historicalData.length > 0) {
+    priceChart.data.labels = historicalData.map((entry) => entry.time); // Update timestamps
+    priceChart.data.datasets[0].data = historicalData.map(
+      (entry) => entry.price
+    ); // Update prices
+    priceChart.update(); // Redraw chart
   } else {
-    priceDisplay.textContent = price;
+    console.error("No data available for chart.");
   }
 }
 
-// Event Listener for Dropdown
-cryptoDropdown.addEventListener("change", updatePrice);
+// Event Listener: Update Chart on Dropdown Change
+cryptoDropdown.addEventListener("change", () => {
+  const selectedSymbol = cryptoDropdown.value;
+  updateChart(selectedSymbol);
+});
 
 // Initial Load
 window.addEventListener("DOMContentLoaded", () => {
-  updatePrice(); // Fetch price for the default selection on page load
+  const defaultSymbol = cryptoDropdown.value;
+  updateChart(defaultSymbol); // Load chart for default selection
 });

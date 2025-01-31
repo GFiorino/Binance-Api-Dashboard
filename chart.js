@@ -34,7 +34,7 @@ let priceChart = new Chart(chartCanvas, {
 
 // Fetch Historical Data from Binance API
 async function fetchHistoricalData(symbol) {
-  const BASE_URL = "https://api.binance.com/api/v3/klines";
+  const BASE_URL ="https://cors-anywhere.herokuapp.com/https://api.binance.com/api/v3/klines";
   const interval = "1h"; // 1-hour interval
   const limit = 50; // Fetch 50 data points
 

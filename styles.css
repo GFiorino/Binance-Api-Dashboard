@@ -1,1 +1,115 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #333;
+}
 
+header {
+  background-color: #1e293b;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+/* Main Section */
+main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+section h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  color: #1e293b;
+}
+
+/* Dropdown Menu */
+#crypto-dropdown {
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Real-Time Price Display */
+#real-time-price {
+  text-align: center;
+}
+
+#price-display {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+/* Chart Section */
+#price-chart canvas {
+  display: block;
+  max-width: 100%;
+  margin: 1rem auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+/* Trade Calculator */
+#calculator-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#investment {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+#calculate-button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: white;
+  background-color: #1e293b;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#calculate-button:hover {
+  background-color: #334155;
+}
+
+#trade-result {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #1e293b;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  font-size: 0.875rem;
+  color: #555;
+}

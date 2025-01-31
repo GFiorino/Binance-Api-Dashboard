@@ -1,1 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Binance API Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Binance API Dashboard</h1>
+  </header>
 
+  <main>
+    <!-- Cryptocurrency Selector -->
+    <section id="crypto-selector">
+      <h2>Select Cryptocurrency</h2>
+      <select id="crypto-dropdown">
+        <option value="BTCUSDT">Bitcoin (BTC)</option>
+        <option value="ETHUSDT">Ethereum (ETH)</option>
+        <option value="BNBUSDT">Binance Coin (BNB)</option>
+      </select>
+    </section>
+
+    <!-- Real-Time Price Display -->
+    <section id="real-time-price">
+      <h2>Real-Time Price</h2>
+      <p id="price-display">Select a cryptocurrency to see the price</p>
+    </section>
+
+    <!-- Historical Price Chart -->
+    <section id="price-chart">
+      <h2>Historical Price Chart</h2>
+      <canvas id="chart"></canvas>
+    </section>
+
+    <!-- Trading Calculator -->
+    <section id="trade-calculator">
+      <h2>Simulated Trade Calculator</h2>
+      <form id="calculator-form">
+        <label for="investment">Investment Amount ($):</label>
+        <input type="number" id="investment" placeholder="Enter amount" required>
+        <button type="button" id="calculate-button">Calculate</button>
+      </form>
+      <p id="trade-result">Enter an amount to simulate a trade.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Created by Gianpiero Fiorino</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

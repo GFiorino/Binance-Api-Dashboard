@@ -1,13 +1,10 @@
-// DOM Element for Chart
-const chartCanvas = document.getElementById("chart").getContext("2d");
-
-// Initialize Chart with Binance Yellow Theme
 let priceChart = new Chart(chartCanvas, {
   type: "line",
   data: {
     labels: [], // Timestamps
     datasets: [
       {
+        label: "", // Remove legend label
         data: [], // Prices
         borderColor: "#F3BA2F", // Binance Yellow
         backgroundColor: "rgba(243, 186, 47, 0.1)", // Light yellow fill
@@ -25,28 +22,13 @@ let priceChart = new Chart(chartCanvas, {
         display: false, // Hide legend
       },
       title: {
-        display: true,
-        text: "Historical Price Chart", // Updated title
-        color: "#F3BA2F", // Binance Yellow
-        font: {
-          size: 16,
-          weight: "bold",
-        },
-        padding: {
-          top: 10,
-          bottom: 20,
-        },
+        display: false, // Remove title
       },
     },
     scales: {
       x: {
         title: {
-          display: true,
-          text: "Time",
-          color: "#F5F5F5",
-          font: {
-            size: 14,
-          },
+          display: false, // Hide x-axis title
         },
         ticks: {
           color: "#F5F5F5", // Light text color
@@ -57,12 +39,7 @@ let priceChart = new Chart(chartCanvas, {
       },
       y: {
         title: {
-          display: true,
-          text: "Price (USD)",
-          color: "#F5F5F5",
-          font: {
-            size: 14,
-          },
+          display: false, // Hide y-axis title
         },
         ticks: {
           color: "#F5F5F5", // Light text color

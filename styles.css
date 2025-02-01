@@ -13,10 +13,11 @@ body {
 
 #dashboard {
   display: grid;
-  grid-template-columns: 280px 1fr; /* Sidebar and main content layout */
+  grid-template-columns: 300px 1fr; /* Sidebar and chart layout */
+  grid-template-rows: auto; /* Automatically adjust row height */
   grid-gap: 1.5rem;
-  height: 90%;
-  width: 90%;
+  height: 90%; /* Adjust for screen size */
+  width: 90%; /* Adjust for screen size */
   padding: 1rem;
   box-sizing: border-box;
   background-color: #121212;
@@ -26,8 +27,6 @@ body {
 
 /* Sidebar */
 #sidebar {
-  background-color: #121212;
-  padding: 1.2rem;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
@@ -39,7 +38,6 @@ body {
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease;
 }
 
 #sidebar .card:hover {
@@ -68,25 +66,19 @@ body {
 /* Chart Area */
 #chart-area {
   background-color: #2A2A2A;
-  padding: 1.5rem;
+  padding: 2rem; /* Increase padding for better spacing */
   border-radius: 12px;
   display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center the chart */
+  justify-content: center;
   align-items: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease;
-  height: 500px; /* Increased height for better display */
-  grid-column: 2 / 3;
-}
-
-#chart-area:hover {
-  transform: translateY(-4px);
+  grid-column: 2 / 3; /* Second column */
+  height: 550px; /* Increased height for the chart */
 }
 
 #chart {
-  width: 95%; /* Slight padding for better visibility */
-  height: 100%; /* Adjust height to fit container */
+  width: 95%; /* Slight padding for better appearance */
+  height: 90%; /* Increased height for better chart visibility */
   border-radius: 10px;
 }
 
@@ -97,11 +89,6 @@ body {
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease;
-}
-
-#trade-card:hover {
-  transform: translateY(-4px);
 }
 
 #trade-card form {
@@ -109,7 +96,6 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  margin-top: 0.5rem;
 }
 
 #trade-card input {
@@ -138,7 +124,6 @@ body {
 
 #trade-card p {
   margin-top: 1rem;
-  text-align: center;
   font-size: 0.9rem;
   color: #ccc;
 }
@@ -147,18 +132,17 @@ body {
 @media (max-width: 768px) {
   #dashboard {
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto; /* Sidebar, chart, trade card */
   }
 
   #chart-area {
-    height: 300px; /* Adjusted height for smaller screens */
+    height: 400px;
   }
 
   #trade-card input {
-    width: 90%; /* Adjust width for smaller screens */
+    width: 90%;
   }
 
   #trade-card button {
-    width: 80%; /* Ensure it adjusts for smaller screens */
+    width: 80%;
   }
 }

@@ -1,137 +1,89 @@
-/* General Styles */
+/* General Layout */
 body {
   font-family: 'Roboto', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #1E1E1E; /* Dark background */
-  color: #F5F5F5; /* Light text for contrast */
-  display: flex;
-}
-
-h1, h2 {
-  margin: 0;
-  font-weight: bold;
-}
-
-p {
-  margin: 0;
-  font-size: 1.2rem;
-}
-
-/* Sidebar Styles */
-#sidebar {
-  width: 250px;
-  background-color: #121212;
-  padding: 1rem;
+  background-color: #1E1E1E;
   color: #F5F5F5;
   display: flex;
+  height: 100vh;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+/* Dashboard Layout */
+#dashboard {
+  display: grid;
+  grid-template-columns: 250px 1fr; /* Sidebar + Main Chart */
+  height: 100%;
+}
+
+/* Sidebar */
+#sidebar {
+  background-color: #121212;
+  padding: 1rem;
+  display: flex;
   flex-direction: column;
-  align-items: center;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  gap: 1rem;
+  overflow-y: auto;
 }
 
-#sidebar .logo img {
-  max-width: 100px;
-  margin-bottom: 2rem;
-}
-
-#sidebar nav ul {
-  list-style: none;
-  padding: 0;
-  width: 100%;
-}
-
-#sidebar nav ul li {
-  margin: 1rem 0;
-}
-
-#sidebar nav ul li a {
-  text-decoration: none;
-  color: #F3BA2F; /* Binance Yellow */
-  font-weight: bold;
-  display: block;
-  text-align: center;
-  padding: 0.5rem 0;
-  border-radius: 5px;
-}
-
-#sidebar nav ul li a:hover {
-  background-color: #333333;
-}
-
-/* Main Content Styles */
-#main-content {
-  flex: 1;
-  padding: 2rem;
-}
-
-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  text-align: center;
-  color: #F3BA2F; /* Binance Yellow */
-}
-
-/* Card Styles */
-.card {
+#sidebar .card {
   background-color: #2A2A2A;
-  padding: 1.5rem;
+  padding: 1rem;
   border-radius: 10px;
+  text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin-bottom: 2rem;
 }
 
-.card h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #F3BA2F; /* Binance Yellow */
-}
-
-.card p, .card select, .card input {
+#sidebar .card h2 {
   font-size: 1rem;
+  color: #F3BA2F;
+}
+
+#sidebar .card p, #sidebar .card select, #sidebar .card input, #sidebar .card button {
+  font-size: 0.9rem;
   color: #F5F5F5;
   background: #333333;
   border: 1px solid #444444;
   border-radius: 5px;
   padding: 0.5rem;
-  width: 100%;
   margin-top: 0.5rem;
 }
 
-.card button {
-  font-size: 1rem;
-  color: #F5F5F5;
-  background-color: #F3BA2F; /* Binance Yellow */
-  border: none;
-  border-radius: 5px;
-  padding: 0.75rem;
-  margin-top: 1rem;
-  cursor: pointer;
+/* Chart Area */
+#chart-area {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.card button:hover {
-  background-color: #E5A817; /* Slightly darker yellow for hover */
+#chart-area h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #F3BA2F;
 }
 
-/* Chart Styles */
 #chart {
   max-width: 100%;
-  height: 400px;
+  height: 100%; /* Chart fits the area */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  body {
-    flex-direction: column;
+  #dashboard {
+    grid-template-columns: 1fr; /* Stack all elements */
+    grid-template-rows: auto auto; /* Sidebar first, chart second */
   }
 
   #sidebar {
-    width: 100%;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-around;
   }
 
-  #main-content {
+  #chart-area {
     padding: 1rem;
   }
 }

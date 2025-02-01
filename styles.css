@@ -61,7 +61,46 @@ body {
   padding: 0.5rem;
   margin-top: 0.5rem;
 }
+/* Simulated Trade Section */
+#trade-card {
+  background-color: #2A2A2A;
+  padding: 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+  width: calc(60% - 2rem); /* Make it wider */
+  height: auto; /* Adjust height automatically */
+  margin-top: 2rem;
+  margin-left: auto; /* Align to the right */
+}
 
+#trade-card:hover {
+  transform: translateY(-4px);
+}
+
+#trade-card form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+
+#trade-card input,
+#trade-card button {
+  width: 80%; /* Make input and button smaller and centered */
+  margin: 0.5rem auto;
+}
+
+#trade-card p {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #ccc;
+}
 /* Chart Area */
 #chart-area {
   background-color: #2A2A2A;

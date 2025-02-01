@@ -13,10 +13,11 @@ body {
 
 #dashboard {
   display: grid;
-  grid-template-columns: 280px 1fr; /* Wider sidebar */
-  grid-gap: 1.5rem; /* Increased gap for better spacing */
-  height: 90%; /* Slightly shorter to add space */
-  width: 90%; /* Keep margins on the sides */
+  grid-template-columns: 280px 1fr; /* Sidebar and main content */
+  grid-template-rows: auto auto; /* Add rows for chart and simulated trade */
+  grid-gap: 1.5rem;
+  height: auto; /* Allow dynamic height */
+  width: 90%;
   padding: 1rem;
   box-sizing: border-box;
   background-color: #121212;
@@ -61,48 +62,11 @@ body {
   padding: 0.5rem;
   margin-top: 0.5rem;
 }
-/* Simulated Trade Section */
-#trade-card {
-  background-color: #2A2A2A;
-  padding: 1.5rem;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease;
-  width: calc(60% - 2rem); /* Make it wider */
-  height: auto; /* Adjust height automatically */
-  margin-top: 2rem;
-  margin-left: auto; /* Align to the right */
-}
 
-#trade-card:hover {
-  transform: translateY(-4px);
-}
-
-#trade-card form {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  width: 100%;
-}
-
-#trade-card input,
-#trade-card button {
-  width: 80%; /* Make input and button smaller and centered */
-  margin: 0.5rem auto;
-}
-
-#trade-card p {
-  margin-top: 1rem;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #ccc;
-}
 /* Chart Area */
 #chart-area {
+  grid-column: 2 / 3; /* Second column */
+  grid-row: 1 / 2; /* First row */
   background-color: #2A2A2A;
   padding: 1.5rem;
   border-radius: 12px;
@@ -111,9 +75,9 @@ body {
   justify-content: flex-start;
   align-items: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease;
   height: 400px; /* Fixed height for the chart container */
   overflow: hidden; /* Prevent content from overflowing */
+  transition: transform 0.2s ease;
 }
 
 #chart-area:hover {
@@ -126,14 +90,57 @@ body {
   border-radius: 10px;
 }
 
+/* Simulated Trade Section */
+#trade-card {
+  grid-column: 2 / 3; /* Second column */
+  grid-row: 2 / 3; /* Second row under chart */
+  background-color: #2A2A2A;
+  padding: 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+  width: 100%; /* Full width of column */
+  height: auto;
+  margin: 0; /* Remove margins for grid alignment */
+}
+
+#trade-card:hover {
+  transform: translateY(-4px);
+}
+
+#trade-card form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#trade-card input,
+#trade-card button {
+  width: 80%;
+  margin: 0.5rem auto;
+}
+
+#trade-card p {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   #dashboard {
     grid-template-columns: 1fr; /* Stack all elements vertically */
-    grid-template-rows: auto auto; /* Sidebar first, chart second */
+    grid-template-rows: auto auto auto; /* Sidebar, chart, and simulated trade */
   }
 
-  #chart-area {
+  #chart-area,
+  #trade-card {
     width: 100%;
     height: auto;
   }

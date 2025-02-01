@@ -14,7 +14,7 @@ let priceChart = new Chart(chartCanvas, {
         backgroundColor: "rgba(243, 186, 47, 0.1)", // Light yellow fill
         borderWidth: 2,
         tension: 0.4, // Smooth line
-        pointRadius: 0, // Hide points for a cleaner line
+        pointRadius: 2, // Small dots for better visibility
       },
     ],
   },
@@ -24,11 +24,25 @@ let priceChart = new Chart(chartCanvas, {
     plugins: {
       legend: {
         display: true,
+        position: "top", // Move legend to the top
         labels: {
           color: "#F5F5F5", // Light text color for the dark background
           font: {
             size: 14,
           },
+        },
+      },
+      title: {
+        display: true,
+        text: "Time vs. Price (USD)", // Updated title for clarity
+        color: "#F5F5F5",
+        font: {
+          size: 16,
+          weight: "bold",
+        },
+        padding: {
+          top: 10,
+          bottom: 20,
         },
       },
     },
@@ -66,6 +80,14 @@ let priceChart = new Chart(chartCanvas, {
         },
       },
     },
+    layout: {
+      padding: {
+        left: 20,
+        right: 20,
+        top: 10,
+        bottom: 10,
+      },
+    },
     animation: {
       duration: 1000, // Smooth animation
     },
@@ -74,8 +96,7 @@ let priceChart = new Chart(chartCanvas, {
 
 // Fetch Historical Data from Binance API
 async function fetchHistoricalData(symbol) {
-  const BASE_URL =
-    "https://cors-anywhere.herokuapp.com/https://api.binance.com/api/v3/klines";
+  const BASE_URL = "https://cors-anywhere.herokuapp.com/https://api.binance.com/api/v3/klines";
   const interval = "1h"; // 1-hour interval
   const limit = 50; // Fetch 50 data points
 
@@ -89,7 +110,7 @@ async function fetchHistoricalData(symbol) {
       time: new Date(candle[0]).toLocaleTimeString([], {
         hour: "2-digit",
         minute: "2-digit",
-      }), // Format timestamp (HH:MM)
+      }), // Format timestamp for better readability
       price: parseFloat(candle[4]), // Close price
     }));
   } catch (error) {
@@ -113,9 +134,6 @@ async function updateChart(symbol) {
     console.error("No data available for chart.");
   }
 }
-
-// DOM Elements
-const cryptoDropdown = document.getElementById("crypto-dropdown");
 
 // Event Listener: Update Chart on Dropdown Change
 cryptoDropdown.addEventListener("change", () => {

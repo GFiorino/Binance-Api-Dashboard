@@ -23,6 +23,7 @@ body {
   background-color: #121212;
   border-radius: 15px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  overflow: hidden; /* Prevent overflow */
 }
 
 /* Sidebar */
@@ -74,12 +75,14 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   grid-column: 2 / 3; /* Second column */
   height: 550px; /* Increased height for the chart */
+  max-width: 100%; /* Prevent infinite extension */
 }
 
 #chart {
   width: 95%; /* Slight padding for better appearance */
   height: 90%; /* Increased height for better chart visibility */
   border-radius: 10px;
+  max-width: 100%; /* Prevent overflow beyond container */
 }
 
 /* Simulated Trade Section */

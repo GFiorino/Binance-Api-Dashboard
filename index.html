@@ -4,17 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Binance API Dashboard</title>
+  <!-- Link to your CSS file -->
+  <link rel="stylesheet" href="styles.css">
   <!-- Include Chart.js via CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!-- Include your CSS file -->
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* Add a small inline style for a fallback if CSS isn't loading */
-    body {
-      background-color: #1E1E1E;
-      color: #F5F5F5;
-    }
-  </style>
 </head>
 <body>
   <div id="dashboard">
@@ -26,9 +19,10 @@
       </div>
       <div class="card">
         <h2>Select Cryptocurrency</h2>
-        <select id="cryptoDropdown">
+        <select id="crypto-dropdown">
           <option value="BTCUSDT">Bitcoin (BTC)</option>
           <option value="ETHUSDT">Ethereum (ETH)</option>
+          <option value="BNBUSDT">Binance Coin (BNB)</option>
         </select>
       </div>
       <div class="card">
@@ -38,20 +32,19 @@
       <div class="card" id="trade-card">
         <h2>Simulated Trade</h2>
         <form>
-          <input type="number" placeholder="Investment ($)" id="investmentInput" />
-          <button type="button" id="calculateTrade">Calculate</button>
+          <input type="number" id="investment" placeholder="Investment ($)">
+          <button type="button" id="calculate-btn">Calculate</button>
         </form>
-        <p id="tradeResult">Enter an amount to simulate a trade.</p>
+        <p>Enter an amount to simulate a trade.</p>
       </div>
     </div>
-    <!-- Chart Area Section -->
+    <!-- Chart Section -->
     <div id="chart-area">
-      <h1 class="chart-title">Historical Price Chart</h1>
+      <h2 class="chart-title">Historical Price Chart</h2>
       <canvas id="chart"></canvas>
     </div>
   </div>
-
-  <!-- Include your JavaScript file -->
+  <!-- Link to your JS file -->
   <script src="script.js"></script>
 </body>
 </html>

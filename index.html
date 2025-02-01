@@ -36,18 +36,17 @@
       <canvas id="chart" aria-label="Price Chart"></canvas>
     </main>
 
-    <!-- Simulated Trade Section -->
-    <div id="trade-card" aria-label="Simulated Trade">
-      <h2>Simulated Trade</h2>
-      <form id="calculator-form">
-        <label for="investment" class="sr-only">Investment Amount</label>
-        <input type="number" id="investment" placeholder="Investment ($)" aria-required="true">
-        <button type="button" id="calculate-button" aria-label="Calculate simulated trade">Calculate</button>
-      </form>
-      <p id="trade-result" aria-live="polite">Enter an amount to simulate a trade.</p>
-    </div>
-  </div>
-
+  <!-- Simulated Trade Section -->
+<div id="trade-card">
+  <h2>Simulated Trade</h2>
+  <form id="calculator-form">
+    <label for="investment">Investment Amount</label>
+    <input type="number" id="investment" placeholder="Investment ($)">
+    <button type="button" id="calculate-button">Calculate</button>
+  </form>
+  <p id="trade-result">Enter an amount to simulate a trade.</p>
+</div> 
+    
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="chart.js"></script>

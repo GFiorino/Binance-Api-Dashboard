@@ -133,15 +133,15 @@ body {
 }
 
 #trade-card button {
-  width: 50%; /* Smaller button for better proportions */
+  width: 35%; /* Reduce width to half of the original size */
   margin: 0.5rem auto;
   background-color: #F3BA2F; /* Binance Yellow */
   color: #000000; /* Black text for contrast */
-  font-size: 0.9rem; /* Slightly smaller font size */
+  font-size: 0.85rem; /* Slightly smaller font size */
   font-weight: bold;
   border: none;
   border-radius: 6px;
-  padding: 0.5rem; /* Reduced padding */
+  padding: 0.4rem; /* Reduce padding to make it more compact */
   cursor: pointer;
   transition: background-color 0.3s ease;
 }

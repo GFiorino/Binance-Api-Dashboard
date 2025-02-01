@@ -70,7 +70,8 @@ body {
   padding: 2rem; /* Increase padding for better spacing */
   border-radius: 12px;
   display: flex;
-  justify-content: center;
+  flex-direction: column; /* Align title and chart vertically */
+  justify-content: flex-start; /* Title above chart */
   align-items: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   grid-column: 2 / 3; /* Second column */
@@ -80,9 +81,24 @@ body {
 
 #chart {
   width: 95%; /* Slight padding for better appearance */
-  height: 90%; /* Increased height for better chart visibility */
+  height: 85%; /* Increased height for better chart visibility */
   border-radius: 10px;
   max-width: 100%; /* Prevent overflow beyond container */
+}
+
+.chart-title {
+  font-size: 1.4rem; /* Larger and bold for prominence */
+  font-weight: bold;
+  color: #F3BA2F; /* Binance Yellow for title */
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.chart-label {
+  font-size: 0.95rem;
+  color: #F5F5F5;
+  margin-top: 1rem;
+  font-weight: bold;
 }
 
 /* Simulated Trade Section */

@@ -74,7 +74,8 @@ let priceChart = new Chart(chartCanvas, {
 
 // Fetch Historical Data from Binance API
 async function fetchHistoricalData(symbol) {
-  const BASE_URL = "https://cors-anywhere.herokuapp.com/https://api.binance.com/api/v3/klines";
+  const BASE_URL =
+    "https://cors-anywhere.herokuapp.com/https://api.binance.com/api/v3/klines";
   const interval = "1h"; // 1-hour interval
   const limit = 50; // Fetch 50 data points
 
@@ -85,7 +86,10 @@ async function fetchHistoricalData(symbol) {
     if (!response.ok) throw new Error("Failed to fetch historical data");
     const data = await response.json();
     return data.map((candle) => ({
-      time: new Date(candle[0]).toLocaleTimeString(), // Format timestamp
+      time: new Date(candle[0]).toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      }), // Format timestamp (HH:MM)
       price: parseFloat(candle[4]), // Close price
     }));
   } catch (error) {
@@ -109,6 +113,9 @@ async function updateChart(symbol) {
     console.error("No data available for chart.");
   }
 }
+
+// DOM Elements
+const cryptoDropdown = document.getElementById("crypto-dropdown");
 
 // Event Listener: Update Chart on Dropdown Change
 cryptoDropdown.addEventListener("change", () => {

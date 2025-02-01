@@ -62,22 +62,23 @@ body {
   padding: 0.5rem;
   margin-top: 0.5rem;
 }
-
 /* Chart Area */
 #chart-area {
   background-color: #2A2A2A;
   padding: 1.5rem;
-  border-radius: 12px;
+  border-radius: 12px; /* Ensures all corners are rounded */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   grid-column: 2 / 3; /* Second column */
-  height: 550px; /* Increased height for additional padding */
-  width: 100%;
-  overflow: hidden; /* Prevent overflow */
+  height: 600px; /* Increased height for better padding and spacing */
+  width: 100%; /* Ensures the area spans the full column */
+  max-width: 100%; /* Prevents unintended expansion */
+  overflow: hidden; /* Prevent any overflow from the chart */
 }
+
 .chart-title {
   font-size: 1.4rem;
   font-weight: bold;
@@ -87,11 +88,11 @@ body {
 }
 
 #chart {
-  flex: 1;
-  width: 90%; /* Slight padding for better appearance */
-  height: 85%; /* Adjust for more space */
-  border-radius: 10px;
-  max-width: 100%;
+  flex-grow: 1; /* Ensures the chart stretches proportionally */
+  width: 95%; /* Adds slight padding for better appearance */
+  height: 90%; /* Adds vertical space for the chart */
+  border-radius: 12px; /* Matches the area’s rounded corners */
+  max-width: 100%; /* Prevents chart from exceeding the container */
 }
 
 /* Simulated Trade Section */

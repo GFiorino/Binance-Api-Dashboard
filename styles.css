@@ -6,7 +6,7 @@ body {
   background-color: #1E1E1E;
   color: #F5F5F5;
   display: grid;
-  grid-template-columns: 250px 1fr; /* Sidebar + Chart Area */
+  grid-template-columns: 250px 1fr; /* Sidebar (250px) + Main Content */
   height: 100vh;
   overflow: hidden; /* Prevent scrolling */
 }
@@ -43,13 +43,14 @@ body {
   margin-top: 0.3rem;
 }
 
-/* Chart Area */
+/* Main Content */
 #chart-area {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: flex-start;
-  justify-content: flex-start;
   padding: 1rem;
+  overflow: hidden; /* Prevent scrolling */
 }
 
 #chart-area h2 {
@@ -59,8 +60,8 @@ body {
 }
 
 #chart {
-  width: 80%; /* Smaller chart */
-  height: 250px; /* Reduce height */
+  width: 90%; /* Adjust chart width */
+  height: 300px; /* Adjust chart height */
   background: #2A2A2A;
   border-radius: 8px;
   padding: 1rem;
@@ -69,11 +70,11 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
   body {
-    grid-template-columns: 1fr; /* Stack all elements */
+    grid-template-columns: 1fr; /* Stacks all elements vertically */
     grid-template-rows: auto auto; /* Sidebar first, chart second */
   }
 
   #chart {
-    width: 100%;
+    width: 100%; /* Full width on smaller screens */
   }
 }

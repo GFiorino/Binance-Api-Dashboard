@@ -7,34 +7,14 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Sidebar -->
-  <aside id="sidebar">
-    <div class="logo">
-      <img src="assets/binance-logo.png" alt="Binance Logo">
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Wallet</a></li>
-        <li><a href="#">Settings</a></li>
-      </ul>
-    </nav>
-  </aside>
-
-  <!-- Main Content -->
-  <div id="main-content">
-    <header>
-      <h1>Binance API Dashboard</h1>
-    </header>
-
-    <main>
-      <!-- Wallet Balance -->
+  <!-- Main Container -->
+  <div id="dashboard">
+    <!-- Sidebar -->
+    <aside id="sidebar">
       <section class="card">
         <h2>Wallet Balance</h2>
         <p id="wallet-balance">$0.00</p>
       </section>
-
-      <!-- Cryptocurrency Selector -->
       <section class="card">
         <h2>Select Cryptocurrency</h2>
         <select id="crypto-dropdown">
@@ -43,29 +23,24 @@
           <option value="BNBUSDT">Binance Coin (BNB)</option>
         </select>
       </section>
-
-      <!-- Real-Time Price Display -->
       <section class="card">
         <h2>Real-Time Price</h2>
         <p id="price-display">Select a cryptocurrency to see the price</p>
       </section>
-
-      <!-- Historical Price Chart -->
       <section class="card">
-        <h2>Historical Price Chart</h2>
-        <canvas id="chart"></canvas>
-      </section>
-
-      <!-- Simulated Trade Calculator -->
-      <section class="card">
-        <h2>Simulated Trade Calculator</h2>
+        <h2>Simulated Trade</h2>
         <form id="calculator-form">
-          <label for="investment">Investment Amount ($):</label>
-          <input type="number" id="investment" placeholder="Enter amount" required>
+          <input type="number" id="investment" placeholder="Investment ($)">
           <button type="button" id="calculate-button">Calculate</button>
         </form>
         <p id="trade-result">Enter an amount to simulate a trade.</p>
       </section>
+    </aside>
+
+    <!-- Chart Area -->
+    <main id="chart-area">
+      <h2>Historical Price Chart</h2>
+      <canvas id="chart"></canvas>
     </main>
   </div>
 

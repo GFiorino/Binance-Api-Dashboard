@@ -67,7 +67,7 @@ body {
 /* Chart Area */
 #chart-area {
   background-color: #2A2A2A;
-  padding: 2rem; /* Increase padding for better spacing */
+  padding: 1.5rem; /* Increase padding for better spacing */
   border-radius: 12px;
   display: flex;
   flex-direction: column; /* Align title and chart vertically */
@@ -75,15 +75,8 @@ body {
   align-items: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   grid-column: 2 / 3; /* Second column */
-  height: 550px; /* Increased height for the chart */
+  height: 500px; /* Adjust height for better layout */
   max-width: 100%; /* Prevent infinite extension */
-}
-
-#chart {
-  width: 95%; /* Slight padding for better appearance */
-  height: 85%; /* Increased height for better chart visibility */
-  border-radius: 10px;
-  max-width: 100%; /* Prevent overflow beyond container */
 }
 
 .chart-title {
@@ -94,11 +87,11 @@ body {
   text-align: center;
 }
 
-.chart-label {
-  font-size: 0.95rem;
-  color: #F5F5F5;
-  margin-top: 1rem;
-  font-weight: bold;
+#chart {
+  width: 90%; /* Slight padding for better appearance */
+  height: 80%; /* Reduced height for better alignment */
+  border-radius: 10px;
+  max-width: 100%; /* Prevent overflow beyond container */
 }
 
 /* Simulated Trade Section */

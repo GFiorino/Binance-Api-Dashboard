@@ -24,25 +24,12 @@ let priceChart = new Chart(chartCanvas, {
     plugins: {
       legend: {
         display: true,
-        position: "top", // Move legend to the top
+        position: "top", // Legend at the top
         labels: {
-          color: "#F5F5F5", // Light text color for the dark background
+          color: "#F5F5F5", // Light text color for dark background
           font: {
             size: 14,
           },
-        },
-      },
-      title: {
-        display: true,
-        text: "Time vs. Price (USD)", // Updated title for clarity
-        color: "#F5F5F5",
-        font: {
-          size: 16,
-          weight: "bold",
-        },
-        padding: {
-          top: 10,
-          bottom: 20,
         },
       },
     },

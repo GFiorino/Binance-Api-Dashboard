@@ -1,10 +1,7 @@
-// Import Chart.js via CDN (Add this script tag in index.html)
-// <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 // DOM Element for Chart
 const chartCanvas = document.getElementById("chart").getContext("2d");
 
-// Initialize Chart
+// Initialize Chart with Binance Yellow Theme
 let priceChart = new Chart(chartCanvas, {
   type: "line",
   data: {
@@ -13,28 +10,71 @@ let priceChart = new Chart(chartCanvas, {
       {
         label: "Price (USD)",
         data: [], // Prices
-        backgroundColor: "rgba(30, 41, 59, 0.2)", // Light blue fill
-        borderColor: "rgba(30, 41, 59, 1)", // Dark blue line
+        borderColor: "#F3BA2F", // Binance Yellow
+        backgroundColor: "rgba(243, 186, 47, 0.1)", // Light yellow fill
         borderWidth: 2,
+        tension: 0.4, // Smooth line
+        pointRadius: 0, // Hide points for a cleaner line
       },
     ],
   },
   options: {
     responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: true,
+        labels: {
+          color: "#F5F5F5", // Light text color for the dark background
+          font: {
+            size: 14,
+          },
+        },
+      },
+    },
     scales: {
       x: {
-        title: { display: true, text: "Time" },
+        title: {
+          display: true,
+          text: "Time",
+          color: "#F5F5F5",
+          font: {
+            size: 14,
+          },
+        },
+        ticks: {
+          color: "#F5F5F5", // Light text color
+        },
+        grid: {
+          color: "rgba(255, 255, 255, 0.1)", // Subtle grid lines
+        },
       },
       y: {
-        title: { display: true, text: "Price (USD)" },
+        title: {
+          display: true,
+          text: "Price (USD)",
+          color: "#F5F5F5",
+          font: {
+            size: 14,
+          },
+        },
+        ticks: {
+          color: "#F5F5F5", // Light text color
+        },
+        grid: {
+          color: "rgba(255, 255, 255, 0.1)", // Subtle grid lines
+        },
       },
+    },
+    animation: {
+      duration: 1000, // Smooth animation
     },
   },
 });
 
 // Fetch Historical Data from Binance API
 async function fetchHistoricalData(symbol) {
-  const BASE_URL ="https://cors-anywhere.herokuapp.com/https://api.binance.com/api/v3/klines";
+  const BASE_URL = "https://cors-anywhere.herokuapp.com/https://api.binance.com/api/v3/klines";
   const interval = "1h"; // 1-hour interval
   const limit = 50; // Fetch 50 data points
 
@@ -64,6 +104,7 @@ async function updateChart(symbol) {
       (entry) => entry.price
     ); // Update prices
     priceChart.update(); // Redraw chart
+    console.log("Chart updated successfully!");
   } else {
     console.error("No data available for chart.");
   }

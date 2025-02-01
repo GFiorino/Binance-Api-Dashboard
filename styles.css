@@ -100,15 +100,16 @@ body {
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s ease;
-  width: 50%; /* Reduced width for better balance */
-  margin: 0 auto; /* Center horizontally */
+  width: 40%; /* Adjusted for better proportional balance */
+  margin: 1rem auto; /* Center horizontally */
   height: auto;
   grid-column: 2 / 3; /* Positioned under the chart */
   grid-row: 2 / 3;
+  box-sizing: border-box;
 }
 
 #trade-card:hover {
@@ -123,7 +124,7 @@ body {
 }
 
 #trade-card input {
-  width: 70%; /* Adjusted to match sidebar button size */
+  width: 80%; /* Adjusted width to align with the card */
   margin: 0.5rem auto;
   background: #333333;
   border: 1px solid #444444;
@@ -133,7 +134,8 @@ body {
 }
 
 #trade-card button {
-  width: 50%; /* Reduced button width */
+  width: 60%; /* Reduced button width */
+  max-width: 150px; /* Limit maximum size for better scaling */
   margin: 0.5rem auto;
   background-color: #F3BA2F; /* Binance Yellow */
   color: #000000; /* Black text for contrast */
@@ -170,11 +172,11 @@ body {
   }
 
   #trade-card {
-    width: 80%; /* Adjust width for smaller screens */
+    width: 90%; /* Expand width for smaller screens */
     grid-column: 1 / 2; /* Full width in mobile */
   }
 
   #trade-card button {
-    width: 70%; /* Ensure it adjusts for smaller screens */
+    width: 80%; /* Adjust button for smaller screens */
   }
 }

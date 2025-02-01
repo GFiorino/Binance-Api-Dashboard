@@ -11,42 +11,42 @@
   <div id="dashboard">
     <!-- Sidebar -->
     <aside id="sidebar">
-      <section class="card" aria-label="Wallet Balance">
+      <section class="card">
         <h2>Wallet Balance</h2>
-        <p id="wallet-balance" aria-live="polite">$0.00</p>
+        <p id="wallet-balance">$0.00</p>
       </section>
-      <section class="card" aria-label="Select Cryptocurrency">
+      <section class="card">
         <h2>Select Cryptocurrency</h2>
-        <label for="crypto-dropdown" class="sr-only">Choose a cryptocurrency</label>
-        <select id="crypto-dropdown" aria-labelledby="crypto-dropdown">
+        <select id="crypto-dropdown">
           <option value="BTCUSDT">Bitcoin (BTC)</option>
           <option value="ETHUSDT">Ethereum (ETH)</option>
           <option value="BNBUSDT">Binance Coin (BNB)</option>
         </select>
       </section>
-      <section class="card" aria-label="Real-Time Price">
+      <section class="card">
         <h2>Real-Time Price</h2>
-        <p id="price-display" aria-live="polite">Select a cryptocurrency to see the price</p>
+        <p id="price-display">Select a cryptocurrency to see the price</p>
       </section>
     </aside>
 
     <!-- Chart Area -->
-    <main id="chart-area" aria-label="Historical Price Chart">
+    <main id="chart-area">
       <h2>Historical Price Chart</h2>
-      <canvas id="chart" aria-label="Price Chart"></canvas>
+      <canvas id="chart"></canvas>
     </main>
 
-  <!-- Simulated Trade Section -->
-<div id="trade-card">
-  <h2>Simulated Trade</h2>
-  <form id="calculator-form">
-    <label for="investment">Investment Amount</label>
-    <input type="number" id="investment" placeholder="Investment ($)">
-    <button type="button" id="calculate-button">Calculate</button>
-  </form>
-  <p id="trade-result">Enter an amount to simulate a trade.</p>
-</div> 
-    
+    <!-- Simulated Trade Section -->
+    <div id="trade-card">
+      <h2>Simulated Trade</h2>
+      <form id="calculator-form">
+        <label for="investment">Investment Amount</label>
+        <input type="number" id="investment" placeholder="Investment ($)">
+        <button type="button" id="calculate-button">Calculate</button>
+      </form>
+      <p id="trade-result">Enter an amount to simulate a trade.</p>
+    </div>
+  </div>
+
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="chart.js"></script>

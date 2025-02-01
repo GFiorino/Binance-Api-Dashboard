@@ -4,51 +4,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Binance API Dashboard</title>
-  <link rel="stylesheet" href="styles.css">
+  <!-- Include Chart.js via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Include your CSS file -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Add a small inline style for a fallback if CSS isn't loading */
+    body {
+      background-color: #1E1E1E;
+      color: #F5F5F5;
+    }
+  </style>
 </head>
 <body>
-  <!-- Main Container -->
   <div id="dashboard">
-    <!-- Sidebar -->
-    <aside id="sidebar">
-      <section class="card">
+    <!-- Sidebar Section -->
+    <div id="sidebar">
+      <div class="card">
         <h2>Wallet Balance</h2>
-        <p id="wallet-balance">$0.00</p>
-      </section>
-      <section class="card">
+        <p>$0.00</p>
+      </div>
+      <div class="card">
         <h2>Select Cryptocurrency</h2>
-        <select id="crypto-dropdown">
+        <select id="cryptoDropdown">
           <option value="BTCUSDT">Bitcoin (BTC)</option>
           <option value="ETHUSDT">Ethereum (ETH)</option>
-          <option value="BNBUSDT">Binance Coin (BNB)</option>
         </select>
-      </section>
-      <section class="card">
+      </div>
+      <div class="card">
         <h2>Real-Time Price</h2>
-        <p id="price-display">Current Price: $0.00</p>
-      </section>
-      <section class="card">
+        <p id="realTimePrice">Current Price: $0.00</p>
+      </div>
+      <div class="card" id="trade-card">
         <h2>Simulated Trade</h2>
-        <form id="calculator-form">
-          <label for="investment">Investment Amount</label>
-          <input type="number" id="investment" placeholder="Investment ($)">
-          <button type="button" id="calculate-button">Calculate</button>
+        <form>
+          <input type="number" placeholder="Investment ($)" id="investmentInput" />
+          <button type="button" id="calculateTrade">Calculate</button>
         </form>
-        <p id="trade-result">Enter an amount to simulate a trade.</p>
-      </section>
-    </aside>
-
-    <!-- Chart Area -->
-    <main id="chart-area">
-      <h2 class="chart-title">Historical Price Chart</h2>
+        <p id="tradeResult">Enter an amount to simulate a trade.</p>
+      </div>
+    </div>
+    <!-- Chart Area Section -->
+    <div id="chart-area">
+      <h1 class="chart-title">Historical Price Chart</h1>
       <canvas id="chart"></canvas>
-      <p class="chart-label">Time vs. Price (USD)</p>
-    </main>
+    </div>
   </div>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="chart.js"></script>
+  <!-- Include your JavaScript file -->
   <script src="script.js"></script>
 </body>
 </html>

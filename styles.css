@@ -14,7 +14,6 @@ body {
 #dashboard {
   display: grid;
   grid-template-columns: 300px 1fr; /* Sidebar and chart layout */
-  grid-template-rows: auto; /* Automatically adjust row height */
   grid-gap: 1.5rem;
   height: 90%; /* Adjust for screen size */
   width: 90%; /* Adjust for screen size */
@@ -67,32 +66,33 @@ body {
 /* Chart Area */
 #chart-area {
   background-color: #2A2A2A;
-  padding: 1.5rem; /* Increase padding for better spacing */
+  padding: 1.5rem;
   border-radius: 12px;
   display: flex;
-  flex-direction: column; /* Align title and chart vertically */
-  justify-content: flex-start; /* Title above chart */
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   grid-column: 2 / 3; /* Second column */
   height: 500px; /* Adjust height for better layout */
-  max-width: 100%; /* Prevent infinite extension */
+  width: 100%; /* Prevent infinite extension */
   overflow: hidden; /* Prevent any overflow */
 }
 
 .chart-title {
-  font-size: 1.4rem; /* Larger and bold for prominence */
+  font-size: 1.4rem;
   font-weight: bold;
-  color: #F3BA2F; /* Binance Yellow for title */
+  color: #F3BA2F;
   margin-bottom: 1rem;
   text-align: center;
 }
 
 #chart {
-  width: 90%; /* Slight padding for better appearance */
-  height: 80%; /* Reduced height for better alignment */
+  flex: 1; /* Ensure the chart adjusts dynamically */
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
   border-radius: 10px;
-  max-width: 100%; /* Prevent overflow beyond container */
 }
 
 /* Simulated Trade Section */
@@ -148,7 +148,7 @@ body {
   }
 
   #chart-area {
-    height: 400px;
+    height: 400px; /* Adjust for smaller screens */
   }
 
   #trade-card input {

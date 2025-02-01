@@ -15,7 +15,7 @@ body {
   display: grid;
   grid-template-columns: 280px 1fr; /* Sidebar and main content layout */
   grid-template-rows: auto auto; /* Add rows for chart and trade card */
-  grid-gap: 1.2rem; /* Slightly reduced gap for better alignment */
+  grid-gap: 1.5rem;
   height: 90%;
   width: 90%;
   padding: 1rem;
@@ -104,8 +104,8 @@ body {
   align-items: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s ease;
-  width: 45%; /* Smaller width for balance */
-  margin: 0.5rem auto; /* Reduced vertical margin */
+  width: 50%; /* Reduced width for better balance */
+  margin: 0 auto; /* Center horizontally */
   height: auto;
   grid-column: 2 / 3; /* Positioned under the chart */
   grid-row: 2 / 3;
@@ -123,7 +123,7 @@ body {
 }
 
 #trade-card input {
-  width: 80%; /* Match sidebar button size */
+  width: 70%; /* Adjusted to match sidebar button size */
   margin: 0.5rem auto;
   background: #333333;
   border: 1px solid #444444;
@@ -133,7 +133,7 @@ body {
 }
 
 #trade-card button {
-  width: 50%; /* Smaller button size */
+  width: 50%; /* Reduced button width */
   margin: 0.5rem auto;
   background-color: #F3BA2F; /* Binance Yellow */
   color: #000000; /* Black text for contrast */
@@ -151,7 +151,7 @@ body {
 }
 
 #trade-card p {
-  margin-top: 0.8rem;
+  margin-top: 1rem;
   text-align: center;
   font-size: 0.9rem;
   color: #ccc;
@@ -175,6 +175,6 @@ body {
   }
 
   #trade-card button {
-    width: 60%; /* Ensure button adjusts for smaller screens */
+    width: 70%; /* Ensure it adjusts for smaller screens */
   }
 }

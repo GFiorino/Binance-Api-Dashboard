@@ -24,9 +24,9 @@ let priceChart = new Chart(chartCanvas, {
     plugins: {
       legend: {
         display: true,
-        position: "top", // Legend at the top
+        position: "top", // Move legend to the top
         labels: {
-          color: "#F5F5F5", // Light text color for dark background
+          color: "#F5F5F5", // Light text color for the dark background
           font: {
             size: 14,
           },
@@ -36,12 +36,7 @@ let priceChart = new Chart(chartCanvas, {
     scales: {
       x: {
         title: {
-          display: true,
-          text: "Time",
-          color: "#F5F5F5",
-          font: {
-            size: 14,
-          },
+          display: false, // Disable x-axis title to remove redundant label
         },
         ticks: {
           color: "#F5F5F5", // Light text color

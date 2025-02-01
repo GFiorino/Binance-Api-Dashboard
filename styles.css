@@ -74,11 +74,10 @@ body {
   align-items: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   grid-column: 2 / 3; /* Second column */
-  height: 500px; /* Adjust height for better layout */
-  width: 100%; /* Prevent infinite extension */
-  overflow: hidden; /* Prevent any overflow */
+  height: 550px; /* Increased height for additional padding */
+  width: 100%;
+  overflow: hidden; /* Prevent overflow */
 }
-
 .chart-title {
   font-size: 1.4rem;
   font-weight: bold;
@@ -88,11 +87,11 @@ body {
 }
 
 #chart {
-  flex: 1; /* Ensure the chart adjusts dynamically */
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
+  flex: 1;
+  width: 90%; /* Slight padding for better appearance */
+  height: 85%; /* Adjust for more space */
   border-radius: 10px;
+  max-width: 100%;
 }
 
 /* Simulated Trade Section */

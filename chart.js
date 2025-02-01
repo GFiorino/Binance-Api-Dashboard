@@ -11,6 +11,7 @@ let priceChart = new Chart(chartCanvas, {
     labels: [], // Timestamps
     datasets: [
       {
+        label: "Price (USD)",
         data: [], // Prices
         backgroundColor: "rgba(30, 41, 59, 0.2)", // Light blue fill
         borderColor: "rgba(30, 41, 59, 1)", // Dark blue line
@@ -20,49 +21,32 @@ let priceChart = new Chart(chartCanvas, {
   },
   options: {
     responsive: true,
-    maintainAspectRatio: false, // Ensures the chart adjusts properly to its container
-    plugins: {
-      legend: {
-        display: false, // Hides the legend to eliminate redundant text
-      },
-    },
+    maintainAspectRatio: false, // Ensures chart resizes properly
     scales: {
       x: {
-        title: {
-          display: true,
-          text: "Time",
-          font: {
-            size: 14,
-          },
-        },
+        title: { display: true, text: "Time" },
       },
       y: {
-        title: {
-          display: true,
-          text: "Price (USD)",
-          font: {
-            size: 14,
-          },
+        title: { display: true, text: "Price (USD)" },
+        beginAtZero: false, // Prevent line from starting too close to the bottom
+        min: 0, // Add minimum value for better padding
+        ticks: {
+          padding: 10, // Add space between the ticks and the edge
         },
       },
     },
-    layout: {
-      padding: {
-        top: 10,
-        bottom: 10,
-        left: 10,
-        right: 10,
+    plugins: {
+      legend: {
+        display: false, // Hide legend if unnecessary
       },
-    },
-    animation: {
-      duration: 800, // Smooth transition for data updates
     },
   },
 });
 
 // Fetch Historical Data from Binance API
 async function fetchHistoricalData(symbol) {
-  const BASE_URL = "https://cors-anywhere.herokuapp.com/https://api.binance.com/api/v3/klines";
+  const BASE_URL =
+    "https://cors-anywhere.herokuapp.com/https://api.binance.com/api/v3/klines";
   const interval = "1h"; // 1-hour interval
   const limit = 50; // Fetch 50 data points
 
@@ -73,10 +57,7 @@ async function fetchHistoricalData(symbol) {
     if (!response.ok) throw new Error("Failed to fetch historical data");
     const data = await response.json();
     return data.map((candle) => ({
-      time: new Date(candle[0]).toLocaleTimeString([], {
-        hour: "2-digit",
-        minute: "2-digit",
-      }), // Format timestamp for readability
+      time: new Date(candle[0]).toLocaleTimeString(), // Format timestamp
       price: parseFloat(candle[4]), // Close price
     }));
   } catch (error) {

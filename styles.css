@@ -96,20 +96,18 @@ body {
 /* Simulated Trade Section */
 #trade-card {
   background-color: #2A2A2A;
-  padding: 1rem;
+  padding: 1.5rem;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s ease;
-  width: 40%; /* Adjusted for better proportional balance */
-  margin: 1rem auto; /* Center horizontally */
-  height: auto;
+  width: 80%; /* Adjusted width for better balance */
+  margin: 0 auto; /* Center horizontally */
   grid-column: 2 / 3; /* Positioned under the chart */
   grid-row: 2 / 3;
-  box-sizing: border-box;
 }
 
 #trade-card:hover {
@@ -124,7 +122,7 @@ body {
 }
 
 #trade-card input {
-  width: 80%; /* Adjusted width to align with the card */
+  width: 70%; /* Adjusted input width */
   margin: 0.5rem auto;
   background: #333333;
   border: 1px solid #444444;
@@ -134,16 +132,15 @@ body {
 }
 
 #trade-card button {
-  width: 60%; /* Reduced button width */
-  max-width: 150px; /* Limit maximum size for better scaling */
-  margin: 0.5rem auto;
+  width: 60%; /* Adjusted button width */
+  margin: 1rem auto 0 auto; /* Ensure proper alignment */
   background-color: #F3BA2F; /* Binance Yellow */
   color: #000000; /* Black text for contrast */
-  font-size: 0.85rem; /* Slightly smaller font size */
+  font-size: 0.9rem; /* Slightly smaller font size */
   font-weight: bold;
   border: none;
   border-radius: 6px;
-  padding: 0.4rem; /* Compact padding */
+  padding: 0.6rem; /* Adjusted padding */
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -172,11 +169,11 @@ body {
   }
 
   #trade-card {
-    width: 90%; /* Expand width for smaller screens */
-    grid-column: 1 / 2; /* Full width in mobile */
+    width: 100%; /* Full width for smaller screens */
+    grid-column: 1 / 2; /* Adjust to single-column layout */
   }
 
   #trade-card button {
-    width: 80%; /* Adjust button for smaller screens */
+    width: 80%; /* Ensure button scales on smaller screens */
   }
 }

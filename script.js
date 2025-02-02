@@ -107,3 +107,32 @@ window.addEventListener("DOMContentLoaded", () => {
   updatePrice(); // Fetch price for the default selection on page load
   updateChart(); // Load chart for default selection
 });
+// DOM Elements for Simulated Trade
+const investmentInput = document.getElementById("investment-input");
+const simulateButton = document.getElementById("simulate-button");
+const tradeResult = document.getElementById("trade-result");
+
+// Simulate Trade Function
+async function simulateTrade() {
+  const investment = parseFloat(investmentInput.value); // Get entered investment amount
+  const selectedSymbol = cryptoDropdown.value; // Get selected cryptocurrency
+  
+  if (isNaN(investment) || investment <= 0) {
+    tradeResult.textContent = "Please enter a valid investment amount.";
+    return;
+  }
+
+  // Fetch the current price of the selected cryptocurrency
+  const currentPrice = await fetchPrice(selectedSymbol);
+  if (currentPrice === "Error fetching price") {
+    tradeResult.textContent = "Error fetching price. Try again.";
+    return;
+  }
+
+  // Calculate cryptocurrency holdings
+  const holdings = (investment / currentPrice).toFixed(6);
+  tradeResult.textContent = `With $${investment}, you can buy ${holdings} ${selectedSymbol.slice(0, 3)} at the current price of $${currentPrice}.`;
+}
+
+// Event Listener for Simulate Button
+simulateButton.addEventListener("click", simulateTrade);

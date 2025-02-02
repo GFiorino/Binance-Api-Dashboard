@@ -14,10 +14,9 @@ body {
 #dashboard {
   display: grid;
   grid-template-columns: 300px 1fr; /* Sidebar and chart layout */
-  grid-template-rows: auto; /* Automatically adjust row height */
   grid-gap: 1.5rem;
-  height: 90%; /* Adjust for screen size */
-  width: 90%; /* Adjust for screen size */
+  height: 90%; /* Adaptable height */
+  width: 90%; /* Responsive width */
   padding: 1rem;
   box-sizing: border-box;
   background-color: #121212;
@@ -39,10 +38,11 @@ body {
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-in-out; /* Smooth hover effect */
 }
 
 #sidebar .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-4px); /* Subtle hover elevation */
 }
 
 #sidebar .card h2 {
@@ -57,7 +57,7 @@ body {
 #sidebar .card button {
   font-size: 0.95rem;
   color: #F5F5F5;
-  background: #333333;
+  background-color: #333333;
   border: 1px solid #444444;
   border-radius: 6px;
   padding: 0.5rem;
@@ -75,8 +75,8 @@ body {
   align-items: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   grid-column: 2 / 3; /* Second column */
-  height: 600px; /* Increased height for additional padding */
-  width: 100%; /* Ensure full width */
+  height: 600px; /* Adequate space for chart */
+  width: 100%; /* Full width */
   overflow: hidden; /* Prevent overflow */
 }
 
@@ -93,11 +93,30 @@ body {
   width: 90%; /* Slight padding for better appearance */
   height: 85%; /* Adjust for more space */
   border-radius: 10px; /* Ensure chart container has rounded corners */
-  max-width: 100%;
+  max-width: 100%; /* Prevent overflow */
 }
+
+/* Simulated Trade Result */
 #trade-result {
   margin-top: 1rem;
   font-size: 0.9rem;
   color: #ccc;
   text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #dashboard {
+    grid-template-columns: 1fr; /* Stack sidebar and chart vertically */
+    height: auto; /* Allow adaptive height */
+  }
+
+  #chart-area {
+    height: 500px; /* Adjust chart area height for smaller screens */
+  }
+
+  #sidebar .card input,
+  #sidebar .card button {
+    font-size: 0.85rem; /* Adjust font size for smaller screens */
+  }
 }

@@ -95,3 +95,9 @@ body {
   border-radius: 10px; /* Ensure chart container has rounded corners */
   max-width: 100%;
 }
+#trade-result {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #ccc;
+  text-align: center;
+}

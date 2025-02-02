@@ -4,14 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Binance API Dashboard</title>
-  <!-- Link to your CSS file -->
   <link rel="stylesheet" href="styles.css">
-  <!-- Include Chart.js via CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <div id="dashboard">
-    <!-- Sidebar Section -->
     <div id="sidebar">
       <div class="card">
         <h2>Wallet Balance</h2>
@@ -27,44 +24,22 @@
       </div>
       <div class="card">
         <h2>Real-Time Price</h2>
-        <p id="realTimePrice">Current Price: $0.00</p>
+        <p id="price-display">Current Price: $0.00</p>
       </div>
-      <div class="card" id="trade-card">
+      <div class="card">
         <h2>Simulated Trade</h2>
         <form>
-          <input type="number" id="investment" placeholder="Investment ($)">
-          <button type="button" id="calculate-btn">Calculate</button>
+          <input id="investment-input" type="number" placeholder="Investment ($)">
+          <button id="simulate-button" type="button">Calculate</button>
         </form>
-        <p>Enter an amount to simulate a trade.</p>
+        <p id="trade-result">Enter an amount to simulate a trade.</p>
       </div>
     </div>
-    <!-- Chart Section -->
     <div id="chart-area">
       <h2 class="chart-title">Historical Price Chart</h2>
       <canvas id="chart"></canvas>
     </div>
   </div>
-  <!-- Link to your JS file -->
   <script src="script.js"></script>
-<!-- Dropdown for Cryptocurrency Selection -->
-<select id="crypto-dropdown">
-  <option value="BTCUSDT">Bitcoin (BTC)</option>
-  <option value="ETHUSDT">Ethereum (ETH)</option>
-  <option value="BNBUSDT">Binance Coin (BNB)</option>
-</select>
-
-<!-- Real-Time Price Display -->
-<div id="price-display">Current Price: $0.00</div>
-
-<!-- Chart Area -->
-<div id="chart-area">
-  <canvas id="chart"></canvas>
-</div>
-<div id="trade-card">
-  <h2>Simulated Trade</h2>
-  <input id="investment-input" type="number" placeholder="Investment ($)" />
-  <button id="simulate-button">Calculate</button>
-  <p id="trade-result">Enter an amount to simulate a trade.</p>
-</div>
 </body>
 </html>

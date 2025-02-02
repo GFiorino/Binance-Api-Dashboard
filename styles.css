@@ -15,14 +15,14 @@ body {
   display: grid;
   grid-template-columns: 300px 1fr; /* Sidebar and chart layout */
   grid-gap: 1.5rem;
-  height: 90%; /* Adaptable height */
-  width: 90%; /* Responsive width */
+  height: 90%;
+  width: 90%;
   padding: 1rem;
   box-sizing: border-box;
   background-color: #121212;
   border-radius: 15px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
-  overflow: hidden; /* Prevent overflow */
+  overflow: hidden;
 }
 
 /* Sidebar */
@@ -38,11 +38,6 @@ body {
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease-in-out; /* Smooth hover effect */
-}
-
-#sidebar .card:hover {
-  transform: translateY(-4px); /* Subtle hover elevation */
 }
 
 #sidebar .card h2 {
@@ -51,33 +46,31 @@ body {
   margin-bottom: 0.8rem;
 }
 
-#sidebar .card p,
 #sidebar .card select,
 #sidebar .card input,
 #sidebar .card button {
   font-size: 0.95rem;
   color: #F5F5F5;
-  background-color: #333333;
+  background: #333333;
   border: 1px solid #444444;
   border-radius: 6px;
   padding: 0.5rem;
   margin-top: 0.5rem;
+  width: 100%;
 }
 
 /* Chart Area */
 #chart-area {
   background-color: #2A2A2A;
   padding: 1.5rem;
-  border-radius: 12px; /* Ensure rounded corners for all sides */
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  grid-column: 2 / 3; /* Second column */
-  height: 600px; /* Adequate space for chart */
-  width: 100%; /* Full width */
-  overflow: hidden; /* Prevent overflow */
+  grid-column: 2 / 3;
+  height: 600px;
+  overflow: hidden;
 }
 
 .chart-title {
@@ -85,38 +78,19 @@ body {
   font-weight: bold;
   color: #F3BA2F;
   margin-bottom: 1rem;
-  text-align: center;
 }
 
 #chart {
   flex: 1;
-  width: 90%; /* Slight padding for better appearance */
-  height: 85%; /* Adjust for more space */
-  border-radius: 10px; /* Ensure chart container has rounded corners */
-  max-width: 100%; /* Prevent overflow */
+  width: 100%;
+  max-width: 100%;
+  border-radius: 10px;
 }
 
-/* Simulated Trade Result */
+/* Trade Result */
 #trade-result {
   margin-top: 1rem;
   font-size: 0.9rem;
   color: #ccc;
   text-align: center;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  #dashboard {
-    grid-template-columns: 1fr; /* Stack sidebar and chart vertically */
-    height: auto; /* Allow adaptive height */
-  }
-
-  #chart-area {
-    height: 500px; /* Adjust chart area height for smaller screens */
-  }
-
-  #sidebar .card input,
-  #sidebar .card button {
-    font-size: 0.85rem; /* Adjust font size for smaller screens */
-  }
 }

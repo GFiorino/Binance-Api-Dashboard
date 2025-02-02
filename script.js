@@ -1,29 +1,31 @@
-// CORS Proxy (if needed)
-const CORS_PROXY = "https://cors-anywhere.herokuapp.com/"; // For development only
+// Base URLs for Binance API with optional CORS Proxy
+const CORS_PROXY = "https://cors-anywhere.herokuapp.com/"; // Use only if needed
 const BINANCE_API_URL = `${CORS_PROXY}https://api.binance.com/api/v3/ticker/price`;
 const BINANCE_KLINES_URL = `${CORS_PROXY}https://api.binance.com/api/v3/klines`;
 
 // DOM Elements
-const cryptoDropdown = document.getElementById("crypto-dropdown");
-const priceDisplay = document.getElementById("price-display");
-const investmentInput = document.getElementById("investment-input");
-const simulateButton = document.getElementById("simulate-button");
-const tradeResult = document.getElementById("trade-result");
-const chartCanvas = document.getElementById("chart").getContext("2d");
+const elements = {
+  cryptoDropdown: document.getElementById("crypto-dropdown"),
+  priceDisplay: document.getElementById("price-display"),
+  chartCanvas: document.getElementById("chart").getContext("2d"),
+  investmentInput: document.getElementById("investment-input"),
+  simulateButton: document.getElementById("simulate-button"),
+  tradeResult: document.getElementById("trade-result"),
+};
 
 // Initialize Chart
-const priceChart = new Chart(chartCanvas, {
+const priceChart = new Chart(elements.chartCanvas, {
   type: "line",
   data: {
     labels: [], // Timestamps
     datasets: [
       {
         label: "Price (USD)",
-        data: [],
-        borderColor: "rgba(243, 186, 47, 1)",
-        backgroundColor: "rgba(243, 186, 47, 0.1)",
+        data: [], // Prices
+        borderColor: "rgba(243, 186, 47, 1)", // Binance Yellow
+        backgroundColor: "rgba(243, 186, 47, 0.1)", // Light yellow fill
         borderWidth: 2,
-        tension: 0.4,
+        tension: 0.4, // Smooth line
       },
     ],
   },
@@ -41,10 +43,12 @@ const priceChart = new Chart(chartCanvas, {
 async function fetchData(url) {
   try {
     const response = await fetch(url);
-    if (!response.ok) throw new Error(`Failed to fetch data: ${response.statusText}`);
-    return await response.json();
+    if (!response.ok) throw new Error(`Failed to fetch data from ${url}`);
+    const data = await response.json();
+    console.log("API Response:", data); // Log API response for debugging
+    return data;
   } catch (error) {
-    console.error(error.message);
+    console.error("Fetch Error:", error.message);
     return null;
   }
 }
@@ -56,9 +60,11 @@ async function fetchPrice(symbol) {
   return data ? parseFloat(data.price).toFixed(2) : null;
 }
 
-// Fetch Historical Data
+// Fetch Historical Data for Chart
 async function fetchHistoricalData(symbol) {
-  const url = `${BINANCE_KLINES_URL}?symbol=${symbol}&interval=1h&limit=50`;
+  const interval = "1h"; // 1-hour interval
+  const limit = 50; // Fetch last 50 data points
+  const url = `${BINANCE_KLINES_URL}?symbol=${symbol}&interval=${interval}&limit=${limit}`;
   const data = await fetchData(url);
 
   return data
@@ -67,22 +73,24 @@ async function fetchHistoricalData(symbol) {
           hour: "2-digit",
           minute: "2-digit",
         }),
-        price: parseFloat(candle[4]),
+        price: parseFloat(candle[4]), // Close price
       }))
     : [];
 }
 
 // Update Real-Time Price Display
 async function updatePrice() {
-  const symbol = cryptoDropdown.value;
+  const symbol = elements.cryptoDropdown.value;
+  elements.priceDisplay.textContent = "Loading...";
   const price = await fetchPrice(symbol);
-  priceDisplay.textContent =
-    price !== null ? `Current Price: $${price}` : "Error fetching price";
+
+  elements.priceDisplay.textContent =
+    price !== null ? `Current Price: $${price}` : "Unable to fetch price. Check your connection or try again.";
 }
 
 // Update Chart with Historical Data
 async function updateChart() {
-  const symbol = cryptoDropdown.value;
+  const symbol = elements.cryptoDropdown.value;
   const historicalData = await fetchHistoricalData(symbol);
 
   if (historicalData.length) {
@@ -94,35 +102,32 @@ async function updateChart() {
   }
 }
 
-// Simulate Trade
+// Simulate Trade Function
 async function simulateTrade() {
-  const investment = parseFloat(investmentInput.value);
-  const symbol = cryptoDropdown.value;
+  const investment = parseFloat(elements.investmentInput.value);
+  const symbol = elements.cryptoDropdown.value;
 
   if (isNaN(investment) || investment <= 0) {
-    tradeResult.textContent = "Please enter a valid investment amount.";
+    elements.tradeResult.textContent = "Please enter a valid investment amount.";
     return;
   }
 
   const price = await fetchPrice(symbol);
   if (!price) {
-    tradeResult.textContent = "Error fetching price.";
+    elements.tradeResult.textContent = "Error fetching price. Try again.";
     return;
   }
 
   const holdings = (investment / price).toFixed(6);
-  tradeResult.textContent = `With $${investment}, you can buy ${holdings} ${symbol.slice(
-    0,
-    3
-  )} at the current price of $${price}.`;
+  elements.tradeResult.textContent = `With $${investment}, you can buy ${holdings} ${symbol.slice(0, 3)} at the current price of $${price}.`;
 }
 
 // Event Listeners
-cryptoDropdown.addEventListener("change", () => {
+elements.cryptoDropdown.addEventListener("change", () => {
   updatePrice();
   updateChart();
 });
-simulateButton.addEventListener("click", simulateTrade);
+elements.simulateButton.addEventListener("click", simulateTrade);
 
 // Initial Load
 window.addEventListener("DOMContentLoaded", () => {

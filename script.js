@@ -1,6 +1,7 @@
-import { fetchHistoricalData, updateChart } from "./chart.js";
-
-const BINANCE_API_URL = "https://api.binance.com/api/v3/ticker/price";
+// CORS Proxy (if needed)
+const CORS_PROXY = "https://cors-anywhere.herokuapp.com/"; // For development only
+const BINANCE_API_URL = `${CORS_PROXY}https://api.binance.com/api/v3/ticker/price`;
+const BINANCE_KLINES_URL = `${CORS_PROXY}https://api.binance.com/api/v3/klines`;
 
 // DOM Elements
 const cryptoDropdown = document.getElementById("crypto-dropdown");
@@ -14,7 +15,7 @@ const chartCanvas = document.getElementById("chart").getContext("2d");
 const priceChart = new Chart(chartCanvas, {
   type: "line",
   data: {
-    labels: [],
+    labels: [], // Timestamps
     datasets: [
       {
         label: "Price (USD)",
@@ -36,57 +37,95 @@ const priceChart = new Chart(chartCanvas, {
   },
 });
 
-// Fetch Real-Time Price
-async function fetchPrice(symbol) {
+// Fetch Data from API
+async function fetchData(url) {
   try {
-    const response = await fetch(`${BINANCE_API_URL}?symbol=${symbol}`);
-    if (!response.ok) throw new Error("Failed to fetch price data");
-    const data = await response.json();
-    return parseFloat(data.price).toFixed(2);
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`Failed to fetch data: ${response.statusText}`);
+    return await response.json();
   } catch (error) {
-    console.error("Error fetching price:", error);
+    console.error(error.message);
     return null;
   }
 }
 
-// Update Real-Time Price
+// Fetch Real-Time Price
+async function fetchPrice(symbol) {
+  const url = `${BINANCE_API_URL}?symbol=${symbol}`;
+  const data = await fetchData(url);
+  return data ? parseFloat(data.price).toFixed(2) : null;
+}
+
+// Fetch Historical Data
+async function fetchHistoricalData(symbol) {
+  const url = `${BINANCE_KLINES_URL}?symbol=${symbol}&interval=1h&limit=50`;
+  const data = await fetchData(url);
+
+  return data
+    ? data.map((candle) => ({
+        time: new Date(candle[0]).toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        }),
+        price: parseFloat(candle[4]),
+      }))
+    : [];
+}
+
+// Update Real-Time Price Display
 async function updatePrice() {
   const symbol = cryptoDropdown.value;
   const price = await fetchPrice(symbol);
-  priceDisplay.textContent = price ? `Current Price: $${price}` : "Error fetching price";
+  priceDisplay.textContent =
+    price !== null ? `Current Price: $${price}` : "Error fetching price";
+}
+
+// Update Chart with Historical Data
+async function updateChart() {
+  const symbol = cryptoDropdown.value;
+  const historicalData = await fetchHistoricalData(symbol);
+
+  if (historicalData.length) {
+    priceChart.data.labels = historicalData.map((entry) => entry.time);
+    priceChart.data.datasets[0].data = historicalData.map((entry) => entry.price);
+    priceChart.update();
+  } else {
+    console.error("No historical data available for chart.");
+  }
 }
 
 // Simulate Trade
 async function simulateTrade() {
   const investment = parseFloat(investmentInput.value);
   const symbol = cryptoDropdown.value;
+
   if (isNaN(investment) || investment <= 0) {
     tradeResult.textContent = "Please enter a valid investment amount.";
     return;
   }
+
   const price = await fetchPrice(symbol);
   if (!price) {
     tradeResult.textContent = "Error fetching price.";
     return;
   }
+
   const holdings = (investment / price).toFixed(6);
-  tradeResult.textContent = `With $${investment}, you can buy ${holdings} ${symbol.slice(0, 3)}.`;
+  tradeResult.textContent = `With $${investment}, you can buy ${holdings} ${symbol.slice(
+    0,
+    3
+  )} at the current price of $${price}.`;
 }
 
 // Event Listeners
-cryptoDropdown.addEventListener("change", async () => {
+cryptoDropdown.addEventListener("change", () => {
   updatePrice();
-  const symbol = cryptoDropdown.value;
-  const data = await fetchHistoricalData(symbol);
-  updateChart(priceChart, data);
+  updateChart();
 });
-
 simulateButton.addEventListener("click", simulateTrade);
 
 // Initial Load
-window.addEventListener("DOMContentLoaded", async () => {
+window.addEventListener("DOMContentLoaded", () => {
   updatePrice();
-  const symbol = cryptoDropdown.value;
-  const data = await fetchHistoricalData(symbol);
-  updateChart(priceChart, data);
+  updateChart();
 });

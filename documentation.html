@@ -3,90 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Documentation - Binance API Dashboard</title>
+  <title>Binance API Dashboard Documentation</title>
   <link rel="stylesheet" href="documentation.css">
 </head>
 <body>
-  <!-- Navigation -->
-  <nav style="background-color: #2A2A2A; padding: 1rem; text-align: center;">
-    <a href="index.html" style="margin-right: 1rem; color: #F5F5F5; text-decoration: none;">Dashboard</a>
-    <a href="documentation.html" class="active" style="color: #F3BA2F; text-decoration: none;">Documentation</a>
-  </nav>
+  <header style="background-color: #2A2A2A; padding: 1rem; text-align: center;">
+    <nav>
+      <a href="index.html" style="margin-right: 1rem; color: #F3BA2F; text-decoration: none;">Dashboard</a>
+      <a href="documentation.html" class="active" style="color: #F5F5F5; text-decoration: none;">Documentation</a>
+    </nav>
+  </header>
+  <main style="padding: 2rem;">
+    <h1 style="text-align: center; color: #F3BA2F;">Binance API Dashboard Documentation</h1>
 
-  <div class="container" style="padding: 2rem; font-family: Arial, sans-serif; color: #F5F5F5;">
-    <h1>Documentation - Binance API Dashboard</h1>
-
-    <!-- Introduction -->
-    <section id="introduction" style="margin-bottom: 2rem;">
-      <h2>Introduction</h2>
-      <p>The <strong>Binance API Dashboard</strong> is a web application designed to provide real-time insights into cryptocurrency trends. It allows users to visualize live and historical price data, simulate cryptocurrency trades, and gain valuable market insights.</p>
+    <!-- Overview -->
+    <section>
+      <h2>Overview</h2>
+      <p>
+        The <strong>Binance API Dashboard</strong> is a dynamic web application that enables cryptocurrency enthusiasts and traders to monitor live trends and simulate cryptocurrency trades. Powered by the Binance API and enhanced with a user-friendly interface, the dashboard provides valuable insights into the price movements of Bitcoin (BTC), Ethereum (ETH), and Binance Coin (BNB).
+      </p>
     </section>
 
     <!-- Features -->
-    <section id="features" style="margin-bottom: 2rem;">
+    <section>
       <h2>Features</h2>
       <ul>
-        <li>Real-time price tracking for Bitcoin (BTC), Ethereum (ETH), and Binance Coin (BNB).</li>
-        <li>Interactive chart for historical price analysis over multiple timeframes.</li>
-        <li>Simulated trading functionality based on live market prices.</li>
+        <li><strong>Live Cryptocurrency Trends:</strong> Real-time price updates and historical trends displayed in a visually appealing chart.</li>
+        <li><strong>Simulated Trade:</strong> Enter an investment amount to calculate how much of each cryptocurrency you could purchase.</li>
+        <li><strong>Interactive Interface:</strong> Easy-to-use dropdowns for selecting timeframes, with seamless navigation between pages.</li>
       </ul>
     </section>
 
-    <!-- Technology Stack -->
-    <section id="technology-stack" style="margin-bottom: 2rem;">
-      <h2>Technology Stack</h2>
-      <p>This project is built using the following technologies:</p>
-      <ul>
-        <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
-        <li><strong>Charting Library:</strong> Chart.js</li>
-        <li><strong>API:</strong> Binance API</li>
-      </ul>
-    </section>
-
-    <!-- Setup -->
-    <section id="setup" style="margin-bottom: 2rem;">
-      <h2>Setup</h2>
-      <p>To set up the project locally:</p>
+    <!-- Setup and Installation -->
+    <section>
+      <h2>Setup and Installation</h2>
+      <p>Follow these steps to set up the Binance API Dashboard locally:</p>
       <ol>
-        <li>Clone the repository:</li>
-        <pre><code>git clone https://github.com/yourusername/Binance-Api-Dashboard.git</code></pre>
-        <li>Open the <code>index.html</code> file in a web browser.</li>
+        <li>Clone the repository:
+          <pre><code>git clone https://github.com/yourusername/Binance-API-Dashboard.git</code></pre>
+        </li>
+        <li>Navigate to the project folder:
+          <pre><code>cd Binance-API-Dashboard</code></pre>
+        </li>
+        <li>Open the <code>index.html</code> file in your web browser.</li>
       </ol>
     </section>
 
     <!-- How It Works -->
-    <section id="how-it-works" style="margin-bottom: 2rem;">
+    <section>
       <h2>How It Works</h2>
-      <p>The application interacts with the Binance API to fetch live and historical data. It uses Chart.js to display the data in an interactive format, and JavaScript handles the logic for simulated trades.</p>
-      <p style="margin-top: 1rem; color: #F3BA2F;">[Insert Diagram: Data Flow from Binance API to Chart]</p>
+      <h3>1. Real-Time Price Updates</h3>
+      <p>
+        The dashboard fetches live prices for Bitcoin, Ethereum, and Binance Coin from the Binance API. Historical data is retrieved for the selected timeframe (e.g., 24 hours, 1 week, 1 month) and displayed on an interactive chart using Chart.js.
+      </p>
+      <!-- Placeholder for image or diagram -->
+      <img src="images/chart-diagram.png" alt="Chart Example Diagram" style="max-width: 100%; height: auto; margin: 1rem 0;">
+
+      <h3>2. Simulated Trade</h3>
+      <p>
+        Enter an investment amount in the "Simulated Trade" section. The dashboard calculates the number of coins you could purchase based on the latest market prices, using data fetched from the Binance API.
+      </p>
     </section>
 
-    <!-- API Reference -->
-    <section id="api-reference" style="margin-bottom: 2rem;">
-      <h2>API Reference</h2>
-      <p>The project utilizes the following Binance API endpoints:</p>
+    <!-- Technology Stack -->
+    <section>
+      <h2>Technology Stack</h2>
       <ul>
-        <li><strong>Real-Time Prices:</strong> <code>https://api.binance.com/api/v3/ticker/price</code></li>
-        <li><strong>Historical Data:</strong> <code>https://api.binance.com/api/v3/klines</code></li>
-      </ul>
-      <p style="margin-top: 1rem; color: #F3BA2F;">[Insert Table: API Endpoint Parameters]</p>
-    </section>
-
-    <!-- Future Enhancements -->
-    <section id="future-enhancements" style="margin-bottom: 2rem;">
-      <h2>Future Enhancements</h2>
-      <ul>
-        <li>Add user authentication for saving custom watchlists.</li>
-        <li>Include additional cryptocurrencies.</li>
-        <li>Enable data export to CSV format.</li>
+        <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
+        <li><strong>Charting Library:</strong> Chart.js</li>
+        <li><strong>Data Source:</strong> Binance API</li>
+        <li><strong>Styling:</strong> Custom CSS with responsive design</li>
       </ul>
     </section>
 
-    <!-- Screenshots -->
-    <section id="screenshots" style="margin-bottom: 2rem;">
-      <h2>Screenshots</h2>
-      <p style="margin-top: 1rem; color: #F3BA2F;">[Insert Screenshot: Dashboard Overview]</p>
+    <!-- Contact Information -->
+    <section>
+      <h2>Contact</h2>
+      <p>
+        For questions, feedback, or feature requests, feel free to contact us through GitHub or at <a href="mailto:your-email@example.com">your-email@example.com</a>.
+      </p>
     </section>
-  </div>
+  </main>
 </body>
 </html>

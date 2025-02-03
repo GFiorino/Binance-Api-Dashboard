@@ -12,6 +12,12 @@ const elements = {
 const cryptoSymbols = ["BTCUSDT", "ETHUSDT", "BNBUSDT"];
 const cryptoLabels = ["Bitcoin (BTC)", "Ethereum (ETH)", "Binance Coin (BNB)"];
 
+const colorPalette = [
+  "rgba(243, 186, 47, 1)", // Bitcoin color
+  "rgba(75, 192, 192, 1)", // Ethereum color
+  "rgba(255, 99, 132, 1)", // Binance Coin color
+];
+
 const priceChart = new Chart(elements.chartCanvas, {
   type: "line",
   data: {
@@ -19,8 +25,8 @@ const priceChart = new Chart(elements.chartCanvas, {
     datasets: cryptoSymbols.map((symbol, index) => ({
       label: cryptoLabels[index],
       data: [],
-      borderColor: `rgba(${(index + 1) * 80}, ${(index + 1) * 60}, 200, 1)`,
-      backgroundColor: `rgba(${(index + 1) * 80}, ${(index + 1) * 60}, 200, 0.1)`,
+      borderColor: colorPalette[index],
+      backgroundColor: `${colorPalette[index].replace("1)", "0.2)")}`,
       borderWidth: 2,
       fill: true,
     })),
@@ -42,7 +48,7 @@ const priceChart = new Chart(elements.chartCanvas, {
       y: {
         title: {
           display: true,
-          text: "Price (USD)",
+          text: "Normalized Price (%)",
           color: "#F5F5F5",
         },
         ticks: {
@@ -53,7 +59,7 @@ const priceChart = new Chart(elements.chartCanvas, {
     plugins: {
       legend: {
         labels: {
-          color: "#F5F5F5", // Ensure the legend matches the theme
+          color: "#F5F5F5", // Match legend with the theme
         },
       },
     },
@@ -84,9 +90,13 @@ async function updateChart() {
 
   if (historicalData.length > 0 && historicalData[0].length > 0) {
     priceChart.data.labels = historicalData[0].map((entry) => entry.time); // Use timestamps from the first cryptocurrency
+
     priceChart.data.datasets.forEach((dataset, index) => {
-      dataset.data = historicalData[index].map((entry) => entry.price);
+      const maxPrice = Math.max(...historicalData[index].map((entry) => entry.price)); // Find max price for normalization
+      dataset.data = historicalData[index].map((entry) => (entry.price / maxPrice) * 100); // Normalize to percentage
+      dataset.label = `${cryptoLabels[index]} (Normalized)`;
     });
+
     priceChart.update();
   } else {
     console.error("Failed to fetch historical data or no data available.");
@@ -110,34 +120,16 @@ async function simulateTrade() {
     const tradeResults = responses.map((response, index) => {
       const price = parseFloat(response.price);
       const holdings = (investment / price).toFixed(6);
-      return `${cryptoLabels[index]}: ${holdings} (${price.toFixed(2)} USD)`;
+      return `<span style="color:${colorPalette[index]}">${cryptoLabels[index]}:</span> ${holdings}`;
     });
 
-    elements.tradeResult.textContent = `With $${investment}, you can buy:\n` + tradeResults.join("\n");
+    elements.tradeResult.innerHTML = `With $${investment}, you can buy:<br>` + tradeResults.join("<br>");
   } catch (error) {
     console.error("Error simulating trade:", error);
     elements.tradeResult.textContent = "Error simulating trade. Try again.";
   }
 }
-async function updateChart() {
-  const historicalData = await Promise.all(
-    cryptoSymbols.map((symbol) => fetchHistoricalData(symbol))
-  );
 
-  if (historicalData.length > 0 && historicalData[0].length > 0) {
-    priceChart.data.labels = historicalData[0].map((entry) => entry.time); // Use timestamps from the first cryptocurrency
-
-    priceChart.data.datasets.forEach((dataset, index) => {
-      const maxPrice = Math.max(...historicalData[index].map((entry) => entry.price)); // Find max price for normalization
-      dataset.data = historicalData[index].map((entry) => (entry.price / maxPrice) * 100); // Normalize to percentage
-      dataset.label = `${cryptoLabels[index]} (Normalized)`;
-    });
-
-    priceChart.update();
-  } else {
-    console.error("Failed to fetch historical data or no data available.");
-  }
-}
 elements.simulateButton.addEventListener("click", simulateTrade);
 
 // Automatically load and update the chart on page load

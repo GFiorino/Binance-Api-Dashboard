@@ -1,48 +1,46 @@
 const priceChart = new Chart(elements.chartCanvas, {
   type: "line",
   data: {
-    labels: [], // Timestamps
-    datasets: [
-      {
-        label: "Crypto 1",
-        data: [],
-        borderColor: "rgba(243, 186, 47, 1)", // Binance Yellow
-        backgroundColor: "rgba(243, 186, 47, 0.2)",
-        borderWidth: 2,
-        tension: 0.4, // Smooth curve
-      },
-      {
-        label: "Crypto 2",
-        data: [],
-        borderColor: "rgba(75, 192, 192, 1)", // Cyan
-        backgroundColor: "rgba(75, 192, 192, 0.2)",
-        borderWidth: 2,
-        tension: 0.4,
-      },
-      {
-        label: "Crypto 3",
-        data: [],
-        borderColor: "rgba(255, 99, 132, 1)", // Red
-        backgroundColor: "rgba(255, 99, 132, 0.2)",
-        borderWidth: 2,
-        tension: 0.4,
-      },
-    ],
+    labels: [],
+    datasets: [],
   },
   options: {
-    responsive: true, // Ensures responsiveness
-    maintainAspectRatio: false, // Allows the chart to scale freely
+    responsive: true,
+    maintainAspectRatio: false, // Ensure it adapts to the container
+    layout: {
+      padding: {
+        left: 10,
+        right: 10,
+        top: 10,
+        bottom: 10, // Add padding to avoid content overflowing
+      },
+    },
     scales: {
       x: {
         title: {
           display: true,
           text: "Time",
+          color: "#F5F5F5",
+        },
+        ticks: {
+          color: "#F5F5F5",
         },
       },
       y: {
         title: {
           display: true,
           text: "Price (USD)",
+          color: "#F5F5F5",
+        },
+        ticks: {
+          color: "#F5F5F5",
+        },
+      },
+    },
+    plugins: {
+      legend: {
+        labels: {
+          color: "#F5F5F5", // Ensure the legend matches the theme
         },
       },
     },

@@ -5,7 +5,7 @@ body {
   padding: 0;
   background-color: #1E1E1E;
   color: #F5F5F5;
-  height: 100vh;
+  height: 100vh; /* Full viewport height */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,48 +14,41 @@ body {
 
 #dashboard {
   display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-gap: 2rem;
-  height: 90vh;
-  width: 90vw;
+  grid-template-columns: 1fr 3fr; /* Sidebar takes 1/4 of space, chart takes 3/4 */
+  grid-gap: 2rem; /* Add more space between sidebar and chart */
+  height: 90vh; /* Adjust height to fit viewport */
+  width: 90vw; /* Adjust width to fit viewport */
   padding: 1rem;
   box-sizing: border-box;
-  background: linear-gradient(135deg, #121212, #1E1E1E); /* Add subtle gradient */
+  background-color: #121212;
   border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
-  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  overflow: hidden; /* Prevent overflow */
 }
 
 /* Sidebar */
 #sidebar {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.5rem; /* Increase spacing between cards */
 }
 
 #sidebar .card {
-  background: #2A2A2A;
-  padding: 1.2rem;
+  background-color: #2A2A2A;
+  padding: 1rem;
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-#sidebar .card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
 }
 
 #sidebar .card h2 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #F3BA2F;
   margin-bottom: 0.8rem;
 }
 
 #sidebar .card input,
-#sidebar .card button,
-#sidebar .card select {
+#sidebar .card button {
   font-size: 0.95rem;
   color: #F5F5F5;
   background: #333333;
@@ -67,93 +60,53 @@ body {
 }
 
 #sidebar .card button {
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-#sidebar .card button:hover {
-  background: #555555;
-  transform: translateY(-2px);
-}
-
-#sidebar .card select {
-  cursor: pointer;
+  cursor: pointer; /* Add pointer for buttons */
   transition: background 0.3s ease;
 }
 
-#sidebar .card select:hover {
-  background: #444444;
+#sidebar .card button:hover {
+  background: #444444; /* Change button background on hover */
 }
 
-/* Main Content */
+/* Chart Area */
 #main-content {
-  background: #2A2A2A;
-  padding: 1.5rem;
+  background-color: #2A2A2A;
+  padding: 1.5rem; /* Add padding for spacing */
   border-radius: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-start; /* Align the content to the top */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  height: 100%;
-  position: relative;
+  height: 100%; /* Constrain height to fit grid */
+  overflow: hidden; /* Prevent chart from spilling */
+  position: relative; /* Ensure positioning respects parent bounds */
 }
 
 /* Chart Title */
 .chart-title {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: bold;
   color: #F5F5F5;
   margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  text-align: center; /* Center align the title */
 }
 
-#timeframe-dropdown {
-  font-size: 1rem;
-  padding: 0.4rem;
-  color: #F5F5F5;
-  background: #333333;
-  border: 1px solid #444444;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  width: 150px;
-}
-
-#timeframe-dropdown:hover {
-  background: #444444;
-}
-
-/* Chart Container */
+/* Chart Block */
 #chart-container {
   width: 100%;
-  height: calc(100% - 2rem);
+  height: calc(100% - 3rem); /* Ensure it fits within the chart area minus padding */
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  position: relative; /* Ensure the chart respects its parent */
+  overflow: hidden; /* Prevent overflow outside the block */
   border-radius: 10px;
-  overflow: hidden;
-  background: linear-gradient(145deg, #1E1E1E, #333333);
 }
 
 #chart {
-  width: 100%;
-  height: 100%;
+  width: 100%; /* Full width of the container */
+  height: 100%; /* Full height of the container */
   border-radius: 10px;
-  position: relative;
-  background-color: #1E1E1E;
-}
-
-/* Hover Effects for Interactive Elements */
-button, select, input {
-  transition: all 0.3s ease;
-}
-
-button:focus, select:focus, input:focus {
-  outline: none;
-  border-color: #F3BA2F;
-  box-shadow: 0 0 8px rgba(243, 186, 47, 0.8);
+  position: relative; /* Constrain to parent container */
 }

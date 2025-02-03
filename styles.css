@@ -59,6 +59,15 @@ body {
   width: 100%;
 }
 
+#sidebar .card button {
+  cursor: pointer; /* Add pointer for buttons */
+  transition: background 0.3s ease;
+}
+
+#sidebar .card button:hover {
+  background: #444444; /* Change button background on hover */
+}
+
 /* Chart Area */
 #main-content {
   background-color: #2A2A2A;
@@ -100,4 +109,5 @@ body {
   height: 100%; /* Full height of the container */
   border-radius: 10px;
   position: relative; /* Constrain to parent container */
+  background-color: #1E1E1E; /* Add background for better visibility */
 }

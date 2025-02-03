@@ -1,23 +1,23 @@
-// List of cryptocurrencies to compare
-const CRYPTOCURRENCIES = [
-  { symbol: "BTCUSDT", name: "Bitcoin" },
-  { symbol: "ETHUSDT", name: "Ethereum" },
-  { symbol: "BNBUSDT", name: "Binance Coin" },
-];
+const BINANCE_API_URL = "https://api.binance.com/api/v3/ticker/price";
+const BINANCE_KLINES_URL = "https://api.binance.com/api/v3/klines";
 
-// Initialize Chart with multiple datasets
+const elements = {
+  chartCanvas: document.getElementById("chart").getContext("2d"),
+  cryptoDropdowns: [
+    document.getElementById("crypto-dropdown-1"),
+    document.getElementById("crypto-dropdown-2"),
+    document.getElementById("crypto-dropdown-3"),
+  ],
+  investmentInput: document.getElementById("investment-input"),
+  simulateButton: document.getElementById("simulate-button"),
+  tradeResult: document.getElementById("trade-result"),
+};
+
 const priceChart = new Chart(elements.chartCanvas, {
   type: "line",
   data: {
-    labels: [], // Timestamps
-    datasets: CRYPTOCURRENCIES.map((crypto) => ({
-      label: crypto.name,
-      data: [], // Prices
-      borderColor: getRandomColor(), // Assign random color
-      backgroundColor: "rgba(0, 0, 0, 0)", // Transparent background
-      borderWidth: 2,
-      tension: 0.4, // Smooth line
-    })),
+    labels: [],
+    datasets: [],
   },
   options: {
     responsive: true,
@@ -26,50 +26,38 @@ const priceChart = new Chart(elements.chartCanvas, {
       x: { title: { display: true, text: "Time" } },
       y: { title: { display: true, text: "Price (USD)" } },
     },
-    plugins: {
-      legend: { display: true, position: "top" },
-    },
   },
 });
 
-// Fetch historical data for multiple cryptocurrencies
-async function fetchHistoricalDataForMultiple() {
+async function fetchHistoricalData(symbol) {
   const interval = "1h";
   const limit = 50;
-  const requests = CRYPTOCURRENCIES.map((crypto) =>
-    fetch(`${BINANCE_KLINES_URL}?symbol=${crypto.symbol}&interval=${interval}&limit=${limit}`)
-      .then((response) => response.json())
-      .then((data) =>
-        data.map((candle) => ({
-          time: new Date(candle[0]).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-          price: parseFloat(candle[4]),
-        }))
-      )
-  );
-  return Promise.all(requests);
+  const url = `${BINANCE_KLINES_URL}?symbol=${symbol}&interval=${interval}&limit=${limit}`;
+  const response = await fetch(url);
+  const data = await response.json();
+  return data.map((candle) => ({
+    time: new Date(candle[0]).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+    price: parseFloat(candle[4]),
+  }));
 }
 
-// Update chart with data for multiple cryptocurrencies
 async function updateChart() {
-  const historicalData = await fetchHistoricalDataForMultiple();
-  const timestamps = historicalData[0]?.map((entry) => entry.time) || []; // Use timestamps from the first dataset
+  const historicalData = await Promise.all(
+    elements.cryptoDropdowns.map((dropdown) => fetchHistoricalData(dropdown.value))
+  );
 
-  priceChart.data.labels = timestamps;
-  CRYPTOCURRENCIES.forEach((crypto, index) => {
-    priceChart.data.datasets[index].data = historicalData[index]?.map((entry) => entry.price) || [];
-  });
+  priceChart.data.labels = historicalData[0].map((entry) => entry.time);
+  priceChart.data.datasets = historicalData.map((data, index) => ({
+    label: elements.cryptoDropdowns[index].selectedOptions[0].text,
+    data: data.map((entry) => entry.price),
+    borderColor: `rgba(${(index + 1) * 80}, ${(index + 1) * 60}, 200, 1)`,
+    fill: false,
+  }));
   priceChart.update();
 }
 
-// Helper function to generate random colors
-function getRandomColor() {
-  const letters = "0123456789ABCDEF";
-  let color = "#";
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-}
+elements.cryptoDropdowns.forEach((dropdown) => {
+  dropdown.addEventListener("change", updateChart);
+});
 
-// Initial load
 window.addEventListener("DOMContentLoaded", updateChart);

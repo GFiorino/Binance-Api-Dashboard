@@ -1,7 +1,7 @@
-# Binance Comparison Dashboard
+# Binance API Dashboard
 
 ## Overview
-The **Binance Comparison Dashboard** is a web-based application designed to track and compare the live price trends of **Bitcoin (BTC)**, **Ethereum (ETH)**, and **Binance Coin (BNB)**. This dashboard allows users to analyze historical trends across multiple timeframes and simulate cryptocurrency purchases.
+The **Binance API Dashboard** is a web-based application designed to track and compare the live price trends of **Bitcoin (BTC)**, **Ethereum (ETH)**, and **Binance Coin (BNB)**. This dashboard allows users to analyze historical trends across multiple timeframes and simulate cryptocurrency purchases.
 
 ## Features
 ### ✅ **Live Cryptocurrency Trends**

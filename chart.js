@@ -1,8 +1,20 @@
+// Resize chart dynamically based on its container
+const resizeChartCanvas = () => {
+  const canvas = document.getElementById('chart');
+  const parent = canvas.parentElement;
+  canvas.width = parent.offsetWidth;
+  canvas.height = parent.offsetHeight;
+};
+
+// Call resize before initializing the chart
+resizeChartCanvas();
+
+// Chart Initialization
 const priceChart = new Chart(elements.chartCanvas, {
   type: "line",
   data: {
-    labels: [],
-    datasets: [],
+    labels: [], // Timestamps
+    datasets: [], // Dynamic datasets will be added
   },
   options: {
     responsive: true,
@@ -20,20 +32,20 @@ const priceChart = new Chart(elements.chartCanvas, {
         title: {
           display: true,
           text: "Time",
-          color: "#F5F5F5",
+          color: "#F5F5F5", // Consistent with theme
         },
         ticks: {
-          color: "#F5F5F5",
+          color: "#F5F5F5", // Consistent with theme
         },
       },
       y: {
         title: {
           display: true,
           text: "Price (USD)",
-          color: "#F5F5F5",
+          color: "#F5F5F5", // Consistent with theme
         },
         ticks: {
-          color: "#F5F5F5",
+          color: "#F5F5F5", // Consistent with theme
         },
       },
     },
@@ -46,3 +58,6 @@ const priceChart = new Chart(elements.chartCanvas, {
     },
   },
 });
+
+// Resize chart dynamically when the window is resized
+window.addEventListener("resize", resizeChartCanvas);

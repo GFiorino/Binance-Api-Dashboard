@@ -1,96 +1,67 @@
-/* General Layout */
 body {
   font-family: 'Roboto', Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #1E1E1E;
   color: #F5F5F5;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 #dashboard {
   display: grid;
-  grid-template-columns: 300px 1fr; /* Sidebar and chart layout */
-  grid-gap: 1.5rem;
-  height: 90%;
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 1rem;
   width: 90%;
-  padding: 1rem;
-  box-sizing: border-box;
+  max-width: 1200px;
   background-color: #121212;
+  padding: 1.5rem;
   border-radius: 15px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
 }
 
-/* Sidebar */
 #sidebar {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1.5rem;
 }
 
-#sidebar .card {
+.card {
   background-color: #2A2A2A;
   padding: 1rem;
-  border-radius: 12px;
-  text-align: center;
+  border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-#sidebar .card h2 {
-  font-size: 1.1rem;
-  color: #F3BA2F;
-  margin-bottom: 0.8rem;
-}
-
-#sidebar .card select,
-#sidebar .card input,
-#sidebar .card button {
-  font-size: 0.95rem;
-  color: #F5F5F5;
-  background: #333333;
-  border: 1px solid #444444;
-  border-radius: 6px;
-  padding: 0.5rem;
-  margin-top: 0.5rem;
-  width: 100%;
-}
-
-/* Chart Area */
-#chart-area {
-  background-color: #2A2A2A;
-  padding: 1.5rem;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  grid-column: 2 / 3;
-  height: 600px;
-  overflow: hidden;
-}
-
-.chart-title {
-  font-size: 1.4rem;
-  font-weight: bold;
+.card h2 {
   color: #F3BA2F;
   margin-bottom: 1rem;
 }
 
-#chart {
-  flex: 1;
+.card select, .card input, .card button {
   width: 100%;
-  max-width: 100%;
-  border-radius: 10px;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  background-color: #333333;
+  color: #F5F5F5;
+  border: 1px solid #444444;
 }
 
-/* Trade Result */
-#trade-result {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: #ccc;
-  text-align: center;
+#main-content {
+  background-color: #2A2A2A;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#chart {
+  width: 100%;
+  height: 400px;
+  max-width: 100%;
 }

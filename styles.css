@@ -47,7 +47,6 @@ body {
   margin-bottom: 0.8rem;
 }
 
-#sidebar .card select,
 #sidebar .card input,
 #sidebar .card button {
   font-size: 0.95rem;
@@ -61,7 +60,7 @@ body {
 }
 
 /* Chart Area */
-#chart-area {
+#main-content {
   background-color: #2A2A2A;
   padding: 1.5rem; /* Add padding for spacing */
   border-radius: 12px;
@@ -73,7 +72,6 @@ body {
   height: 100%; /* Constrain height to fit grid */
   overflow: hidden; /* Prevent chart from spilling */
   position: relative; /* Ensure positioning respects parent bounds */
-  grid-column: 2; /* Ensure the chart is placed in the second column */
 }
 
 /* Chart Title */
@@ -86,7 +84,7 @@ body {
 }
 
 /* Chart Block */
-.chart-container {
+#chart-container {
   width: 100%;
   height: calc(100% - 2rem); /* Ensure it fits within the chart area minus padding */
   display: flex;

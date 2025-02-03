@@ -3,52 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Binance API Dashboard</title>
+  <title>Cryptocurrency Comparison Dashboard</title>
   <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <div id="dashboard">
+    <!-- Sidebar -->
     <div id="sidebar">
       <div class="card">
         <h2>Wallet Balance</h2>
-        <p>$0.00</p>
+        <p id="wallet-balance">$0.00</p>
       </div>
       <div class="card">
-        <h2>Select Cryptocurrency</h2>
-        <select id="crypto-dropdown">
-          <option value="BTCUSDT">Bitcoin (BTC)</option>
-          <option value="ETHUSDT">Ethereum (ETH)</option>
-          <option value="BNBUSDT">Binance Coin (BNB)</option>
-        </select>
-      </div>
-      <div class="card">
-        <h2>Real-Time Price</h2>
-        <p id="price-display">Current Price: $0.00</p>
+        <h2>Select Cryptocurrencies</h2>
+        <div id="crypto-dropdown-container">
+          <label for="crypto-dropdown-1">Crypto 1:</label>
+          <select id="crypto-dropdown-1">
+            <option value="BTCUSDT">Bitcoin (BTC)</option>
+            <option value="ETHUSDT">Ethereum (ETH)</option>
+            <option value="BNBUSDT">Binance Coin (BNB)</option>
+          </select>
+          <label for="crypto-dropdown-2">Crypto 2:</label>
+          <select id="crypto-dropdown-2">
+            <option value="BTCUSDT">Bitcoin (BTC)</option>
+            <option value="ETHUSDT">Ethereum (ETH)</option>
+            <option value="BNBUSDT">Binance Coin (BNB)</option>
+          </select>
+          <label for="crypto-dropdown-3">Crypto 3:</label>
+          <select id="crypto-dropdown-3">
+            <option value="BTCUSDT">Bitcoin (BTC)</option>
+            <option value="ETHUSDT">Ethereum (ETH)</option>
+            <option value="BNBUSDT">Binance Coin (BNB)</option>
+          </select>
+        </div>
       </div>
       <div class="card">
         <h2>Simulated Trade</h2>
-        <form>
-          <input id="investment-input" type="number" placeholder="Investment ($)">
-          <button id="simulate-button" type="button">Calculate</button>
-        </form>
+        <input id="investment-input" type="number" placeholder="Investment ($)">
+        <button id="simulate-button" type="button">Simulate</button>
         <p id="trade-result">Enter an amount to simulate a trade.</p>
       </div>
     </div>
-    <div id="chart-area">
-      <h2 class="chart-title">Historical Price Chart</h2>
+    <!-- Main Content -->
+    <div id="main-content">
+      <h2>Historical Trends</h2>
       <canvas id="chart"></canvas>
     </div>
   </div>
   <script src="script.js"></script>
-<div class="card">
-  <h2>Select Cryptocurrencies</h2>
-  <select id="crypto-dropdown" multiple>
-    <option value="BTCUSDT">Bitcoin (BTC)</option>
-    <option value="ETHUSDT">Ethereum (ETH)</option>
-    <option value="BNBUSDT">Binance Coin (BNB)</option>
-  </select>
-  <small>Hold CTRL or CMD to select multiple options.</small>
-</div>
 </body>
 </html>

@@ -65,7 +65,7 @@ The **Binance API Dashboard** is a web-based application designed to track and c
 
 ---
 ### 🔗 **Live Demo** (If Hosted)
-[Live Version of the Dashboard](https://gfiorino.github.io/binance-api-dashboard/)
+[Live Version of the Dashboard](https://gfiorino.github.io/Binance-Api-Dashboard/)
 
 ### 📩 **Contact**
 For any questions or feature requests, feel free to reach out!

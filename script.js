@@ -6,6 +6,7 @@ const elements = {
   investmentInput: document.getElementById("investment-input"),
   simulateButton: document.getElementById("simulate-button"),
   tradeResult: document.getElementById("trade-result"),
+  timeframeDropdown: document.getElementById("timeframe-dropdown"),
 };
 
 // Cryptocurrency symbols to track
@@ -18,6 +19,16 @@ const colorPalette = [
   "rgba(255, 99, 132, 1)", // Binance Coin color
 ];
 
+// Timeframe options for Binance API
+const timeframes = {
+  "Last 24h": { interval: "1h", limit: 24 },
+  "Last Week": { interval: "1d", limit: 7 },
+  "Last Month": { interval: "1d", limit: 30 },
+  "Last 3 Months": { interval: "1d", limit: 90 },
+  "Last Year": { interval: "1w", limit: 52 },
+};
+
+// Chart Initialization
 const priceChart = new Chart(elements.chartCanvas, {
   type: "line",
   data: {
@@ -66,26 +77,27 @@ const priceChart = new Chart(elements.chartCanvas, {
   },
 });
 
-async function fetchHistoricalData(symbol) {
-  const interval = "1h";
-  const limit = 50;
+// Function to fetch historical data for a specific timeframe
+async function fetchHistoricalData(symbol, timeframe) {
+  const { interval, limit } = timeframes[timeframe];
   const url = `${BINANCE_KLINES_URL}?symbol=${symbol}&interval=${interval}&limit=${limit}`;
   try {
     const response = await fetch(url);
     const data = await response.json();
     return data.map((candle) => ({
-      time: new Date(candle[0]).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+      time: new Date(candle[0]).toLocaleDateString([], { month: "short", day: "numeric" }),
       price: parseFloat(candle[4]),
     }));
   } catch (error) {
-    console.error(`Error fetching historical data for ${symbol}:`, error);
+    console.error(`Error fetching data for ${symbol}:`, error);
     return [];
   }
 }
 
-async function updateChart() {
+// Function to update the chart
+async function updateChart(timeframe = "Last 24h") {
   const historicalData = await Promise.all(
-    cryptoSymbols.map((symbol) => fetchHistoricalData(symbol))
+    cryptoSymbols.map((symbol) => fetchHistoricalData(symbol, timeframe))
   );
 
   if (historicalData.length > 0 && historicalData[0].length > 0) {
@@ -99,10 +111,11 @@ async function updateChart() {
 
     priceChart.update();
   } else {
-    console.error("Failed to fetch historical data or no data available.");
+    console.error("No data available for the selected timeframe.");
   }
 }
 
+// Simulated trade functionality
 async function simulateTrade() {
   const investment = parseFloat(elements.investmentInput.value);
   if (isNaN(investment) || investment <= 0) {
@@ -130,7 +143,13 @@ async function simulateTrade() {
   }
 }
 
-elements.simulateButton.addEventListener("click", simulateTrade);
+// Event listener for timeframe dropdown
+elements.timeframeDropdown.addEventListener("change", (e) => {
+  const selectedTimeframe = e.target.value;
+  updateChart(selectedTimeframe);
+});
 
-// Automatically load and update the chart on page load
-window.addEventListener("DOMContentLoaded", updateChart);
+// Automatically load the chart on page load with the default timeframe
+window.addEventListener("DOMContentLoaded", () => {
+  updateChart("Last 24h");
+});

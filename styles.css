@@ -63,15 +63,18 @@ body {
 /* Chart Area */
 #chart-area {
   background-color: #2A2A2A;
-  padding: 2rem; /* Add padding to provide better spacing */
+  padding: 1.5rem; /* Add padding for spacing */
   border-radius: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Align content to the top */
+  justify-content: center; /* Center the content vertically */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  height: 100%; /* Full height of the container */
+  height: 100%; /* Constrain height to fit grid */
+  max-height: 100%; /* Prevent overflow */
   overflow: hidden; /* Prevent chart from spilling */
+  position: relative; /* Ensure positioning respects parent bounds */
+  grid-column: 2; /* Ensure the chart is placed in the second column */
 }
 
 .chart-title {
@@ -81,6 +84,7 @@ body {
   margin-bottom: 1rem;
 }
 
+/* Chart Block */
 .chart-container {
   width: 100%;
   height: calc(100% - 2rem); /* Ensure it fits within the chart area minus padding */

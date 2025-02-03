@@ -18,19 +18,33 @@
       <div class="card">
         <h2>Simulated Trade</h2>
         <input id="investment-input" type="number" placeholder="Investment ($)">
-        <button id="simulate-button" type="button">Simulate</button>
+        <button id="simulate-button" type="button">Simulate Buy Currency</button>
         <p id="trade-result">Enter an amount to simulate a trade.</p>
       </div>
     </div>
 
-<!-- Main Content -->
+    <!-- Main Content -->
     <div id="main-content">
-     <h2 class="chart-title" style="color: #F5F5F5;">Live Trends</h2>
+      <h2 class="chart-title" style="color: #F5F5F5;">Live Trends</h2>
+
+      <!-- Timeframe Dropdown -->
+      <div id="timeframe-dropdown-container">
+        <label for="timeframe-dropdown" style="color: #F5F5F5;">Select Timeframe:</label>
+        <select id="timeframe-dropdown">
+          <option value="1d">Last 24h</option>
+          <option value="7d">Last 7 Days</option>
+          <option value="30d">Last 30 Days</option>
+          <option value="90d">Last 3 Months</option>
+          <option value="1y">Last 1 Year</option>
+        </select>
+      </div>
+
       <div id="chart-container">
         <canvas id="chart"></canvas>
       </div>
     </div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>

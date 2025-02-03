@@ -68,9 +68,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Align content to the top */
+  justify-content: center; /* Center content vertically */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   height: 100%; /* Full height of the container */
+  max-height: 600px; /* Limit the maximum height */
   overflow: hidden; /* Prevent chart from overflowing */
 }
 
@@ -84,7 +85,9 @@ body {
 #chart {
   flex: 1;
   width: 100%; /* Full width of the container */
-  max-width: 100%;
+  max-width: 100%; /* Prevent horizontal overflow */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 100%; /* Prevent vertical overflow */
   border-radius: 10px;
 }
 

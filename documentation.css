@@ -1,1 +1,23 @@
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  background-color: #1E1E1E;
+  color: #F5F5F5;
+  margin: 0;
+  padding: 0;
+}
 
+h2, h3 {
+  color: #F3BA2F;
+}
+
+img {
+  display: block;
+  margin: 1rem auto;
+  max-width: 80%;
+  border-radius: 10px;
+}
+
+p {
+  line-height: 1.6;
+  margin: 1rem 0;
+}

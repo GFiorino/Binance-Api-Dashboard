@@ -119,7 +119,25 @@ async function simulateTrade() {
     elements.tradeResult.textContent = "Error simulating trade. Try again.";
   }
 }
+async function updateChart() {
+  const historicalData = await Promise.all(
+    cryptoSymbols.map((symbol) => fetchHistoricalData(symbol))
+  );
 
+  if (historicalData.length > 0 && historicalData[0].length > 0) {
+    priceChart.data.labels = historicalData[0].map((entry) => entry.time); // Use timestamps from the first cryptocurrency
+
+    priceChart.data.datasets.forEach((dataset, index) => {
+      const maxPrice = Math.max(...historicalData[index].map((entry) => entry.price)); // Find max price for normalization
+      dataset.data = historicalData[index].map((entry) => (entry.price / maxPrice) * 100); // Normalize to percentage
+      dataset.label = `${cryptoLabels[index]} (Normalized)`;
+    });
+
+    priceChart.update();
+  } else {
+    console.error("Failed to fetch historical data or no data available.");
+  }
+}
 elements.simulateButton.addEventListener("click", simulateTrade);
 
 // Automatically load and update the chart on page load

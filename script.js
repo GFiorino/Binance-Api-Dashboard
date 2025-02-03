@@ -153,3 +153,9 @@ elements.timeframeDropdown.addEventListener("change", (e) => {
 window.addEventListener("DOMContentLoaded", () => {
   updateChart("Last 24h");
 });
+// Ensure the simulate button exists before adding the event listener
+if (elements.simulateButton) {
+  elements.simulateButton.addEventListener("click", simulateTrade);
+} else {
+  console.error("Simulate button not found in the DOM.");
+}

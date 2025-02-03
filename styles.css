@@ -71,6 +71,7 @@ body {
   justify-content: center; /* Center the content */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   height: 100%; /* Full height of the container */
+  max-height: 100%; /* Prevent overflow */
   overflow: hidden; /* Prevent chart from spilling */
   position: relative; /* Ensure positioning respects parent bounds */
 }
@@ -83,11 +84,24 @@ body {
   z-index: 1; /* Ensure the title remains visible */
 }
 
+/* Chart Block (new) */
+.chart-container {
+  width: 100%;
+  height: calc(100% - 2rem); /* Ensure it fits within the chart area minus padding */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Prevent overflow outside the block */
+  position: relative; /* Ensure the chart respects its parent */
+}
+
 #chart {
   flex-grow: 1; /* Ensure it takes available space */
-  width: 95%; /* Slight padding for the chart */
+  width: 100%; /* Full width of the container */
   height: 100%; /* Full height of the container */
   max-height: 100%; /* Prevent overflowing vertically */
   border-radius: 10px;
-  position: relative; /* Constrain to parent container */
+  position: absolute; /* Constrain to parent container */
+  top: 0;
+  left: 0;
 }

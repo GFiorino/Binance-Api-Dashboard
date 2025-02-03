@@ -17,8 +17,7 @@
       </div>
       <div class="card">
         <h2>Simulated Trade</h2>
-        <input id="investment-input" type="number" placeholder="Investment ($)">
-        <button id="simulate-button" type="button">Simulate Buy Currency</button>
+      <input id="investment-input" type="number" placeholder="Investment ($)" style="padding: 0.5rem; font-size: 0.95rem; color: #F5F5F5; background: #333; border: 1px solid #444; border-radius: 6px; margin-top: 0.5rem; width: 80%;">        <button id="simulate-button" type="button">Simulate Buy Currency</button>
         <p id="trade-result">Enter an amount to simulate a trade.</p>
       </div>
     </div>
@@ -27,14 +26,13 @@
     <div id="main-content">
       <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
         <h2 class="chart-title" style="color: #F5F5F5; margin-right: 1rem;">Live Trends</h2>
-        <select id="timeframe-dropdown" style="padding: 0.5rem; font-size: 1rem; border-radius: 6px; background-color: #333; color: #F5F5F5; border: 1px solid #444;">
-          <option value="1d">Last 24h</option>
-          <option value="1w">1 Week</option>
-          <option value="1m">1 Month</option>
-          <option value="3m">3 Months</option>
-          <option value="1y">1 Year</option>
-        </select>
-      </div>
+       <select id="timeframe-dropdown" style="padding: 0.5rem; font-size: 1rem; border-radius: 6px; background-color: #333; color: #F5F5F5; border: 1px solid #444; width: 150px;">
+  <option value="1d">Last 24h</option>
+  <option value="1w">1 Week</option>
+  <option value="1m">1 Month</option>
+  <option value="3m">3 Months</option>
+  <option value="1y">1 Year</option>
+</select>      </div>
       <div id="chart-container">
         <canvas id="chart"></canvas>
       </div>

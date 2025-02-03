@@ -68,20 +68,21 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Center the content vertically */
+  justify-content: flex-start; /* Align the content to the top */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   height: 100%; /* Constrain height to fit grid */
-  max-height: 100%; /* Prevent overflow */
   overflow: hidden; /* Prevent chart from spilling */
   position: relative; /* Ensure positioning respects parent bounds */
   grid-column: 2; /* Ensure the chart is placed in the second column */
 }
 
+/* Chart Title */
 .chart-title {
   font-size: 1.4rem;
   font-weight: bold;
   color: #F3BA2F;
   margin-bottom: 1rem;
+  text-align: center; /* Center align the title */
 }
 
 /* Chart Block */
@@ -91,15 +92,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden; /* Prevent overflow outside the block */
   position: relative; /* Ensure the chart respects its parent */
+  overflow: hidden; /* Prevent overflow outside the block */
+  border-radius: 10px;
 }
 
 #chart {
-  flex-grow: 1; /* Ensure it takes available space */
   width: 100%; /* Full width of the container */
   height: 100%; /* Full height of the container */
-  max-height: 100%; /* Prevent overflowing vertically */
   border-radius: 10px;
   position: relative; /* Constrain to parent container */
 }

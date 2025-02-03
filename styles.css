@@ -111,3 +111,13 @@ body {
   position: relative; /* Constrain to parent container */
   background-color: #1E1E1E; /* Add background for better visibility */
 }
+#timeframe-dropdown {
+    font-size: 0.95rem;
+    color: #F5F5F5;
+    background: #333333;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    width: 100%;
+}

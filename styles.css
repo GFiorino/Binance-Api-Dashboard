@@ -14,8 +14,8 @@ body {
 
 #dashboard {
   display: grid;
-  grid-template-columns: 1.2fr 2.8fr; /* Sidebar takes 1/3 of space, chart takes 2/3 */
-  grid-gap: 1.5rem;
+  grid-template-columns: 1fr 3fr; /* Sidebar takes 1/4 of space, chart takes 3/4 */
+  grid-gap: 2rem; /* Add more space between sidebar and chart */
   height: 90vh; /* Adjust height to fit viewport */
   width: 90vw; /* Adjust width to fit viewport */
   padding: 1rem;
@@ -30,7 +30,7 @@ body {
 #sidebar {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1.5rem; /* Increase spacing between cards */
 }
 
 #sidebar .card {
@@ -63,17 +63,15 @@ body {
 /* Chart Area */
 #chart-area {
   background-color: #2A2A2A;
-  padding: 1.5rem;
+  padding: 2rem; /* Add padding to provide better spacing */
   border-radius: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Center the content */
+  justify-content: flex-start; /* Align content to the top */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   height: 100%; /* Full height of the container */
-  max-height: 100%; /* Prevent overflow */
   overflow: hidden; /* Prevent chart from spilling */
-  position: relative; /* Ensure positioning respects parent bounds */
 }
 
 .chart-title {
@@ -81,10 +79,8 @@ body {
   font-weight: bold;
   color: #F3BA2F;
   margin-bottom: 1rem;
-  z-index: 1; /* Ensure the title remains visible */
 }
 
-/* Chart Block (new) */
 .chart-container {
   width: 100%;
   height: calc(100% - 2rem); /* Ensure it fits within the chart area minus padding */
@@ -101,7 +97,5 @@ body {
   height: 100%; /* Full height of the container */
   max-height: 100%; /* Prevent overflowing vertically */
   border-radius: 10px;
-  position: absolute; /* Constrain to parent container */
-  top: 0;
-  left: 0;
+  position: relative; /* Constrain to parent container */
 }

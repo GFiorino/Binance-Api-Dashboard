@@ -50,33 +50,7 @@ The **Binance API Dashboard** is a web-based application that enables users to t
     ```
 3. Open the index.html file in your browser.
 4. The dashboard will load automatically and display live cryptocurrency trends.
-    ---
-# Binance API Dashboard
-
-![Binance API Dashboard](images/Dashboard.png)
-
-## Overview
-The **Binance API Dashboard** is a web-based application that enables users to track and compare live price trends for **Bitcoin (BTC)**, **Ethereum (ETH)**, and **Binance Coin (BNB)**. This interactive dashboard allows users to analyze historical trends across multiple timeframes and simulate cryptocurrency purchases, all within an intuitive and user-friendly interface.
-
----
-
-## Features
-
-### ✅ **Live Cryptocurrency Trends**
-- Real-time price updates fetched directly from the **Binance API**.
-- Side-by-side comparison of **Bitcoin**, **Ethereum**, and **Binance Coin** price movements.
-- Historical trends visualized over various timeframes, such as 24 hours, 1 week, 1 month, 3 months, or 1 year.
-
-### ✅ **Simulated Trade**
-- Enter an investment amount to see how much of each cryptocurrency you could purchase at the current market rates.
-- Provides precise calculations based on the latest Binance prices.
-
-### ✅ **User-Friendly Interface**
-- Modern and responsive design for smooth user interaction.
-- Simple dropdown menu for selecting timeframes.
-- Interactive chart powered by **Chart.js**.
-
----
+ ---
 
 ## Technology Stack
 - **Frontend:** HTML, CSS, JavaScript
@@ -98,6 +72,7 @@ The **Binance API Dashboard** is a web-based application that enables users to t
    git clone https://github.com/yourusername/Binance-API-Dashboard.git
    ```
    ---
+   
 How It Works
 📊 Real-Time Price Updates
 - Fetches live cryptocurrency prices from the Binance API.
@@ -109,6 +84,7 @@ How It Works
 - Users input an investment amount.
 - The system calculates and displays the equivalent amount of BTC, ETH, and BNB that could be purchased, using live market prices.
   ---
+  
 Future Enhancements
 🚀 Planned Features:
 
@@ -116,6 +92,7 @@ Future Enhancements
 - Expand support to include additional cryptocurrencies.
 - Export trend data as a CSV file for deeper analysis.
 - Enhance charts with interactive tooltips and more detailed price information.
+  
 🔗 Live Demo
 Explore the live version of the dashboard here:
 Binance API Dashboard Live

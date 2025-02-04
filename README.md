@@ -1,76 +1,92 @@
-# Binance API Dashboard
-![Binance API Dashboard](images/Dashboard.png)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentation - Binance API Dashboard</title>
+  <link rel="stylesheet" href="documentation.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav style="background-color: #2A2A2A; padding: 1rem; text-align: center;">
+    <a href="index.html" style="margin-right: 1rem; color: #F5F5F5; text-decoration: none;">Dashboard</a>
+    <a href="documentation.html" class="active" style="color: #F3BA2F; text-decoration: none;">Documentation</a>
+  </nav>
 
-## Overview
-The **Binance API Dashboard** is a web-based application designed to track and compare the live price trends of **Bitcoin (BTC)**, **Ethereum (ETH)**, and **Binance Coin (BNB)**. This dashboard allows users to analyze historical trends across multiple timeframes and simulate cryptocurrency purchases.
+  <div class="container" style="padding: 2rem; font-family: Arial, sans-serif; color: #F5F5F5;">
+    <h1>Documentation - Binance API Dashboard</h1>
 
-## Features
-### ✅ **Live Cryptocurrency Trends**
-- Real-time price updates from the **Binance API**.
-- Comparison of **Bitcoin, Ethereum, and Binance Coin** in one interactive chart.
-- Historical trends displayed over different timeframes (24 hours, 1 week, 1 month, 3 months, 1 year).
+    <!-- Introduction -->
+    <section id="introduction" style="margin-bottom: 2rem;">
+      <h2>Introduction</h2>
+      <p>The <strong>Binance API Dashboard</strong> is a web application designed to provide real-time insights into cryptocurrency trends. It allows users to visualize live and historical price data, simulate cryptocurrency trades, and gain valuable market insights.</p>
+    </section>
 
-### ✅ **Simulated Trade**
-- Users can input an investment amount to simulate how much of each cryptocurrency they could purchase at current market rates.
-- Results display the number of coins that could be bought based on the latest Binance prices.
+    <!-- Features -->
+    <section id="features" style="margin-bottom: 2rem;">
+      <h2>Features</h2>
+      <ul>
+        <li>Real-time price tracking for Bitcoin (BTC), Ethereum (ETH), and Binance Coin (BNB).</li>
+        <li>Interactive chart for historical price analysis over multiple timeframes.</li>
+        <li>Simulated trading functionality based on live market prices.</li>
+      </ul>
+    </section>
 
-### ✅ **User-Friendly Interface**
-- Clean and modern UI for seamless interaction.
-- Simple dropdown selection for timeframe adjustments.
-- Interactive chart powered by **Chart.js**.
+    <!-- Technology Stack -->
+    <section id="technology-stack" style="margin-bottom: 2rem;">
+      <h2>Technology Stack</h2>
+      <p>This project is built using the following technologies:</p>
+      <ul>
+        <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
+        <li><strong>Charting Library:</strong> Chart.js</li>
+        <li><strong>API:</strong> Binance API</li>
+      </ul>
+    </section>
 
-## Technology Stack
-- **Frontend:** HTML, CSS, JavaScript
-- **Charting Library:** Chart.js
-- **API Data Source:** Binance API
-- **Styling:** Custom CSS with responsive design
+    <!-- Setup -->
+    <section id="setup" style="margin-bottom: 2rem;">
+      <h2>Setup</h2>
+      <p>To set up the project locally:</p>
+      <ol>
+        <li>Clone the repository:</li>
+        <pre><code>git clone https://github.com/yourusername/Binance-Api-Dashboard.git</code></pre>
+        <li>Open the <code>index.html</code> file in a web browser.</li>
+      </ol>
+    </section>
 
-## Setup and Installation
-### Prerequisites
-- Web browser (Chrome, Firefox, Edge, or Safari)
-- Internet connection
+    <!-- How It Works -->
+    <section id="how-it-works" style="margin-bottom: 2rem;">
+      <h2>How It Works</h2>
+      <p>The application interacts with the Binance API to fetch live and historical data. It uses Chart.js to display the data in an interactive format, and JavaScript handles the logic for simulated trades.</p>
+      <p style="margin-top: 1rem; color: #F3BA2F;">[Insert Diagram: Data Flow from Binance API to Chart]</p>
+    </section>
 
-### Steps to Run the Project Locally
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/yourusername/cryptocurrency-dashboard.git
-   ```
-2. Navigate to the project folder:
-   ```bash
-   cd cryptocurrency-dashboard
-   ```
-3. Open the `index.html` file in a web browser.
-4. The dashboard will load automatically and start displaying live cryptocurrency trends.
+    <!-- API Reference -->
+    <section id="api-reference" style="margin-bottom: 2rem;">
+      <h2>API Reference</h2>
+      <p>The project utilizes the following Binance API endpoints:</p>
+      <ul>
+        <li><strong>Real-Time Prices:</strong> <code>https://api.binance.com/api/v3/ticker/price</code></li>
+        <li><strong>Historical Data:</strong> <code>https://api.binance.com/api/v3/klines</code></li>
+      </ul>
+      <p style="margin-top: 1rem; color: #F3BA2F;">[Insert Table: API Endpoint Parameters]</p>
+    </section>
 
-## How It Works
-### 📊 **Real-Time Price Updates**
-- The dashboard fetches the latest cryptocurrency prices from **Binance API**.
-- The chart updates dynamically when a new timeframe is selected.
+    <!-- Future Enhancements -->
+    <section id="future-enhancements" style="margin-bottom: 2rem;">
+      <h2>Future Enhancements</h2>
+      <ul>
+        <li>Add user authentication for saving custom watchlists.</li>
+        <li>Include additional cryptocurrencies.</li>
+        <li>Enable data export to CSV format.</li>
+      </ul>
+    </section>
 
-### 📈 **Historical Data Fetching**
-- The user selects a timeframe (**Last 24h, 1 Week, 1 Month, etc.**).
-- The application sends a request to the Binance API to retrieve historical price data.
-- The data is plotted on a line chart for easy comparison.
-
-### 💰 **Simulated Trade Calculation**
-- Users enter an investment amount (e.g., $1000).
-- The system fetches live prices for BTC, ETH, and BNB.
-- It calculates how much of each cryptocurrency can be purchased based on the entered amount.
-
-## Future Enhancements
-🚀 **Potential Features for Future Updates:**
-- User authentication for saving custom watchlists.
-- Additional cryptocurrencies beyond BTC, ETH, and BNB.
-- Exporting trend data as CSV for analysis.
-- Interactive tooltips with more detailed historical price data.
-
----
-### 🔗 **Live Demo** (If Hosted)
-[Live Version of the Dashboard](https://gfiorino.github.io/Binance-Api-Dashboard/)
-
-### 📩 **Contact**
-For any questions or feature requests, feel free to reach out!
-
----
-⚡ **Built for cryptocurrency enthusiasts and traders looking for quick insights!**
-
+    <!-- Screenshots -->
+    <section id="screenshots" style="margin-bottom: 2rem;">
+      <h2>Screenshots</h2>
+      <p style="margin-top: 1rem; color: #F3BA2F;">[Insert Screenshot: Dashboard Overview]</p>
+    </section>
+  </div>
+</body>
+</html>

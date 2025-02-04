@@ -39,6 +39,17 @@
       color: #1E1E1E;
     }
 
+    /* Image Styling - Ensure Same Size */
+    .documentation-image {
+      display: block;
+      margin: 1.5rem auto;
+      max-width: 85%;
+      width: 650px; /* Fixed width for consistency */
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    }
+
     /* Footer Styles */
     footer {
       text-align: center;
@@ -106,14 +117,13 @@
       <p>
         The dashboard fetches live prices for Bitcoin, Ethereum, and Binance Coin from the Binance API. Historical data is retrieved for the selected timeframe (e.g., 24 hours, 1 week, 1 month) and displayed on an interactive chart using Chart.js.
       </p>
-      <img src="images/Binance-GitHub-Graph.png" alt="Data Flow Diagram">
+      <img src="images/Binance-GitHub-Graph.png" alt="Data Flow Diagram" class="documentation-image">
 
       <h3>2. Simulated Trade</h3>
       <p>
         Enter an investment amount in the "Simulated Trade" section. The dashboard calculates the number of coins you could purchase based on the latest market prices, using data fetched from the Binance API.
       </p>
-       <img src="images/Dashboard.png" alt="Simulate Buy Currency">
-      
+      <img src="images/Dashboard.png" alt="Simulate Buy Currency" class="documentation-image">
     </section>
 
     <section>

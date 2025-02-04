@@ -5,6 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>API Guide - Binance Dashboard</title>
   <link rel="stylesheet" href="documentation.css">
+  <style>
+    nav a {
+      color: #F5F5F5;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #333;
+    }
+
+    nav .active {
+      background-color: #F3BA2F;
+      color: #1E1E1E;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #2A2A2A;
+      color: #F5F5F5;
+      margin-top: 2rem;
+    }
+
+    pre {
+      background-color: #2A2A2A;
+      padding: 1rem;
+      border-radius: 5px;
+      color: #F3BA2F;
+      overflow-x: auto;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -23,53 +57,33 @@
 
     <section>
       <h2>Step 1: Register on Binance</h2>
-      <p>If you don’t already have a Binance account, follow these steps to create one:</p>
       <ol>
-        <li>
-          Visit the <a href="https://www.binance.com" target="_blank">Binance website</a>.
-        </li>
-        <li>
-          Click on the <strong>Sign Up</strong> button.
-        </li>
-        <li>
-          Enter your email address, create a strong password, and complete the registration form.
-        </li>
-        <li>
-          Verify your email by clicking on the confirmation link sent to your inbox.
-        </li>
-        <li>
-          Once verified, log in to your Binance account.
-        </li>
+        <li>Visit the <a href="https://www.binance.com" target="_blank">Binance website</a>.</li>
+        <li>Click on the <strong>Sign Up</strong> button.</li>
+        <li>Complete the registration form with your email and password.</li>
+        <li>Verify your email and log in to your Binance account.</li>
       </ol>
-      <p>
-        <strong>Note:</strong> Depending on your country, Binance may require you to complete additional identity verification (KYC).
-      </p>
+      <p><strong>Note:</strong> Complete identity verification (KYC) if required.</p>
     </section>
 
     <section>
       <h2>Step 2: Generate the API Key</h2>
-      <p>After creating your account, you can proceed to generate your API key:</p>
       <ol>
         <li>Log in to your Binance account.</li>
-        <li>Go to the <strong>API Management</strong> section in your account settings.</li>
-        <li>Click on <strong>Create API</strong> and provide a name for your API key (e.g., "DashboardAPI").</li>
-        <li>Enable <strong>Read-Only</strong> permissions for security purposes.</li>
-        <li>Follow the security steps (e.g., 2FA) to complete the API key creation process.</li>
-        <li>Copy your <strong>API Key</strong> and <strong>Secret Key</strong>.</li>
+        <li>Go to <strong>API Management</strong> in the account settings.</li>
+        <li>Click <strong>Create API</strong> and name your API key.</li>
+        <li>Enable <strong>Read-Only</strong> permissions for security.</li>
+        <li>Complete the security steps and save your API Key and Secret Key.</li>
       </ol>
-      <p>
-        <strong>Important:</strong> The Secret Key will not be shown again, so save it securely.
-      </p>
     </section>
 
     <section>
       <h2>Step 3: Configure the Dashboard</h2>
-      <p>To connect your API key to the dashboard, follow these steps:</p>
       <ol>
-        <li>Open the <strong>script.js</strong> file in your project.</li>
-        <li>Locate the API URL and ensure it points to the Binance API:</li>
+        <li>Open <strong>script.js</strong> in your project.</li>
+        <li>Update the API URL if needed:</li>
         <pre><code>const BINANCE_API_URL = "https://api.binance.com/api/v3/ticker/price";</code></pre>
-        <li>If required, add your API key to the request headers:</li>
+        <li>Add your API key in the request headers:</li>
         <pre><code>
 const response = await fetch(BINANCE_API_URL, {
   headers: {
@@ -83,22 +97,21 @@ const response = await fetch(BINANCE_API_URL, {
 
     <section>
       <h2>FAQ and Troubleshooting</h2>
-      <p>If you encounter any issues, refer to the following tips:</p>
       <ul>
         <li>
-          <strong>Problem:</strong> API key not working.<br>
-          <strong>Solution:</strong> Check if your API key has sufficient permissions or if it is restricted to specific IPs.
+          <strong>Issue:</strong> API key not working.<br>
+          <strong>Solution:</strong> Ensure your API key has proper permissions or check IP restrictions.
         </li>
         <li>
-          <strong>Problem:</strong> Dashboard not displaying data.<br>
-          <strong>Solution:</strong> Ensure the API endpoint and headers are configured correctly in <strong>script.js</strong>.
+          <strong>Issue:</strong> Dashboard not displaying data.<br>
+          <strong>Solution:</strong> Verify the API endpoint and headers in <strong>script.js</strong>.
         </li>
       </ul>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Binance API Dashboard</p>
+    <p>&copy; 2025 Binance API Dashboard | <a href="mailto:gianpierofiorino@icloud.com">Contact Us</a></p>
   </footer>
 </body>
 </html>

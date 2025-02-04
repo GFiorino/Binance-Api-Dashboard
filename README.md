@@ -77,23 +77,28 @@ The **Binance API Dashboard** is a web-based application that enables users to t
   
   ---
   
-Future Enhancements
-🚀 Planned Features:
+## Future Enhancements
+### 🚀 Planned Features:
 
 - Add user authentication to allow saving of custom watchlists and portfolios.
 - Expand support to include additional cryptocurrencies.
 - Export trend data as a CSV file for deeper analysis.
 - Enhance charts with interactive tooltips and more detailed price information.
-  
-🔗 Live Demo
-   Explore the live version of the dashboard here:
-   Binance API Dashboard Live
 
-📩 Contact
-If you have any questions, suggestions, or feature requests, feel free to reach out through:
-   
-    GitHub: Gianpiero Fiorino
-    Email: gianpierofiorino@icloud.com
+---
+
+## 🔗 **Live Demo**
+Explore the live version of the dashboard here:  
+[**Binance API Dashboard Live**](https://gfiorino.github.io/Binance-Api-Dashboard/)
+
+---
+
+## 📩 **Contact**
+If you have any questions, suggestions, or feature requests, feel free to reach out through:  
+- **GitHub:** [Gianpiero Fiorino](https://github.com/GFiorino)  
+- **Email:** [gianpierofiorino@icloud.com](mailto:gianpierofiorino@icloud.com)
+
+---
 
 ⚡ Built for cryptocurrency enthusiasts and traders looking for quick insights and seamless interaction!
 

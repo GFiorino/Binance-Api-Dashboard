@@ -56,6 +56,35 @@
     footer a:hover {
       text-decoration: underline;
     }
+
+    /* Process Overview Styles */
+    .process-overview {
+      background-color: #2A2A2A;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .process-step {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .step-icon {
+      font-size: 1.5rem;
+      color: #F3BA2F;
+      margin-right: 1rem;
+    }
+
+    .step-text {
+      color: #F5F5F5;
+    }
+
+    .step-text strong {
+      color: #F3BA2F;
+    }
   </style>
 </head>
 <body>
@@ -71,15 +100,31 @@
     <h1>API Guide: Getting Started with Binance API</h1>
 
     <section>
-  <h2>Process Overview</h2>
-  <ol>
-    <li><strong>User Registers on Binance</strong> → Creates API Key</li>
-    <li><strong>User Retrieves API Key</strong> → Copies and saves it securely</li>
-    <li><strong>User Adds API Key to the Project</strong> → Updates <code>script.js</code></li>
-    <li><strong>Dashboard Connects to Binance API</strong> → Fetches Live Data</li>
-    <li><strong>Live Data Feeds into Chart.js</strong> → Updates the Graph in Real-Time</li>
-  </ol>
-</section>
+      <h2>Process Overview</h2>
+      <div class="process-overview">
+        <div class="process-step">
+          <span class="step-icon">1️⃣</span>
+          <p class="step-text"><strong>User Registers on Binance</strong> → Creates API Key</p>
+        </div>
+        <div class="process-step">
+          <span class="step-icon">2️⃣</span>
+          <p class="step-text"><strong>User Retrieves API Key</strong> → Copies and saves it securely</p>
+        </div>
+        <div class="process-step">
+          <span class="step-icon">3️⃣</span>
+          <p class="step-text"><strong>User Adds API Key to the Project</strong> → Updates <code>script.js</code></p>
+        </div>
+        <div class="process-step">
+          <span class="step-icon">4️⃣</span>
+          <p class="step-text"><strong>Dashboard Connects to Binance API</strong> → Fetches Live Data</p>
+        </div>
+        <div class="process-step">
+          <span class="step-icon">5️⃣</span>
+          <p class="step-text"><strong>Live Data Feeds into Chart.js</strong> → Updates the Graph in Real-Time</p>
+        </div>
+      </div>
+    </section>
+
     <section>
       <h2>Step 1: Register on Binance</h2>
       <ol>

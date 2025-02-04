@@ -23,7 +23,6 @@ body {
   background-color: #121212;
   border-radius: 15px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
-  overflow: hidden; /* Prevent overflow */
 }
 
 /* Sidebar */
@@ -60,27 +59,52 @@ body {
 }
 
 #sidebar .card button {
-  cursor: pointer; /* Add pointer for buttons */
+  cursor: pointer;
   transition: background 0.3s ease;
 }
 
 #sidebar .card button:hover {
-  background: #444444; /* Change button background on hover */
+  background: #444444;
+}
+
+/* Navigation Button */
+nav {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #F5F5F5;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #333;
+  color: #F3BA2F;
+}
+
+nav .active {
+  color: #F3BA2F;
+  background-color: #444;
+  border: 1px solid #555;
 }
 
 /* Chart Area */
 #main-content {
   background-color: #2A2A2A;
-  padding: 1.5rem; /* Add padding for spacing */
+  padding: 1.5rem;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Align the content to the top */
+  justify-content: flex-start;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   height: 100%; /* Constrain height to fit grid */
-  overflow: hidden; /* Prevent chart from spilling */
-  position: relative; /* Ensure positioning respects parent bounds */
+  overflow: hidden;
 }
 
 /* Chart Title */
@@ -89,29 +113,21 @@ body {
   font-weight: bold;
   color: #F5F5F5;
   margin-bottom: 1rem;
-  text-align: center; /* Center align the title */
+  text-align: center;
 }
 
 /* Chart Block */
 #chart-container {
   width: 100%;
-  height: calc(100% - 3rem); /* Ensure it fits within the chart area minus padding */
+  height: calc(100% - 3rem);
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative; /* Ensure the chart respects its parent */
-  overflow: hidden; /* Prevent overflow outside the block */
   border-radius: 10px;
 }
 
 #chart {
-  width: 100%; /* Full width of the container */
-  height: 100%; /* Full height of the container */
+  width: 100%;
+  height: 100%;
   border-radius: 10px;
-  position: relative; /* Constrain to parent container */
 }
-<!-- Navigation -->
-<nav style="display: flex; justify-content: center; margin-bottom: 1rem;">
-  <a href="index.html" style="margin-right: 1.5rem; color: #F3BA2F; text-decoration: none; font-weight: bold;">Dashboard</a>
-  <a href="documentation.html" style="color: #F5F5F5; text-decoration: none; font-weight: bold; padding: 0.5rem 1rem; background-color: #333; border-radius: 6px; border: 1px solid #444;">Documentation</a>
-</nav>

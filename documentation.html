@@ -3,17 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Binance API Dashboard Documentation</title>
+  <title>API Guide - Binance Dashboard</title>
   <link rel="stylesheet" href="documentation.css">
   <style>
-     <header style="background-color: #2A2A2A; padding: 1rem;">
-    <nav style="display: flex; justify-content: center; gap: 2rem;">
-      <a href="index.html" style="color: #F3BA2F; text-decoration: none; font-size: 1rem; font-weight: bold; padding: 0.5rem 1rem; border-radius: 6px; transition: background-color 0.3s ease;">Dashboard</a>
-      <a href="documentation.html" class="active" style="color: #1E1E1E; text-decoration: none; font-size: 1rem; font-weight: bold; padding: 0.5rem 1rem; border-radius: 6px; background-color: #F3BA2F;">Documentation</a>
-      <a href="api-guide.html" style="color: #F5F5F5; text-decoration: none; font-size: 1rem; font-weight: bold; padding: 0.5rem 1rem; border-radius: 6px; transition: background-color 0.3s ease;">API Guide</a>
-    </nav>
-  </header>
+    /* Navigation Styles */
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #2A2A2A;
+      padding: 1rem;
+      gap: 2rem;
+    }
 
+    nav a {
+      color: #F5F5F5;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav a.active {
+      background-color: #F3BA2F;
+      color: #1E1E1E;
+    }
+
+    nav a:hover {
+      background-color: #333;
+    }
+
+    /* Footer Styles */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #2A2A2A;
+      color: #F5F5F5;
+      margin-top: 2rem;
+    }
+
+    footer a {
+      color: #F3BA2F;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Code Block Styles */
+    pre {
+      background-color: #2A2A2A;
+      padding: 1rem;
+      border-radius: 5px;
+      color: #F3BA2F;
+      font-family: monospace;
+      overflow-x: auto;
+    }
+
+    /* Main Content Styling */
     main {
       padding: 2rem;
       max-width: 800px;
@@ -24,40 +73,12 @@
       margin-bottom: 2rem;
     }
 
-    h1 {
-      text-align: center;
+    h1, h2 {
       color: #F3BA2F;
-      margin-bottom: 2rem;
     }
 
-    h2 {
-      color: #F3BA2F;
-      margin-bottom: 1rem;
-    }
-
-    p {
+    p, li {
       line-height: 1.6;
-    }
-
-    pre {
-      background-color: #2A2A2A;
-      padding: 1rem;
-      border-radius: 6px;
-      color: #F5F5F5;
-      font-family: monospace;
-    }
-
-    ul, ol {
-      margin-left: 2rem;
-    }
-
-    img {
-      max-width: 70%;
-      height: auto;
-      margin: 2rem auto;
-      display: block;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     }
 
     a {
@@ -74,86 +95,74 @@
   <header>
     <nav>
       <a href="index.html">Dashboard</a>
-      <a href="documentation.html" class="active">Documentation</a>
-      <a href="api-guide.html">API Guide</a>
+      <a href="documentation.html">Documentation</a>
+      <a href="api-guide.html" class="active">API Guide</a>
     </nav>
   </header>
+
   <main>
-    <h1>Binance API Dashboard Documentation</h1>
-
-    <!-- Overview -->
     <section>
-      <h2>Overview</h2>
-      <p>
-        The <strong>Binance API Dashboard</strong> is a dynamic web application that enables cryptocurrency enthusiasts and traders to monitor live trends and simulate cryptocurrency trades. Powered by the Binance API and enhanced with a user-friendly interface, the dashboard provides valuable insights into the price movements of Bitcoin (BTC), Ethereum (ETH), and Binance Coin (BNB).
-      </p>
+      <h1>API Guide: Getting Started with Binance API</h1>
+      <p>Follow this guide to register on Binance and obtain your API key for the Binance API Dashboard.</p>
     </section>
 
-    <!-- Features -->
     <section>
-      <h2>Features</h2>
-      <ul>
-        <li><strong>Live Cryptocurrency Trends:</strong> Real-time price updates and historical trends displayed in a visually appealing chart.</li>
-        <li><strong>Simulated Trade:</strong> Enter an investment amount to calculate how much of each cryptocurrency you could purchase.</li>
-        <li><strong>Interactive Interface:</strong> Easy-to-use dropdowns for selecting timeframes, with seamless navigation between pages.</li>
-      </ul>
-    </section>
-
-    <!-- Setup and Installation -->
-    <section>
-      <h2>Setup and Installation</h2>
-      <p>Follow these steps to set up the Binance API Dashboard locally:</p>
+      <h2>Step 1: Register on Binance</h2>
       <ol>
-        <li>Clone the repository:
-          <pre><code>git clone https://github.com/yourusername/Binance-API-Dashboard.git</code></pre>
-        </li>
-        <li>Navigate to the project folder:
-          <pre><code>cd Binance-API-Dashboard</code></pre>
-        </li>
-        <li>Open the <code>index.html</code> file in your web browser.</li>
+        <li>Visit the <a href="https://www.binance.com" target="_blank">Binance website</a>.</li>
+        <li>Click on the <strong>Sign Up</strong> button.</li>
+        <li>Complete the registration form with your email and password.</li>
+        <li>Verify your email and log in to your Binance account.</li>
+      </ol>
+      <p><strong>Note:</strong> Complete identity verification (KYC) if required.</p>
+    </section>
+
+    <section>
+      <h2>Step 2: Generate the API Key</h2>
+      <ol>
+        <li>Log in to your Binance account.</li>
+        <li>Go to <strong>API Management</strong> in the account settings.</li>
+        <li>Click <strong>Create API</strong> and name your API key.</li>
+        <li>Enable <strong>Read-Only</strong> permissions for security.</li>
+        <li>Complete the security steps and save your API Key and Secret Key.</li>
       </ol>
     </section>
 
-    <!-- How It Works -->
     <section>
-      <h2>How It Works</h2>
-      <h3>1. Real-Time Price Updates</h3>
-      <p>
-        The dashboard fetches live prices for Bitcoin, Ethereum, and Binance Coin from the Binance API. Historical data is retrieved for the selected timeframe (e.g., 24 hours, 1 week, 1 month) and displayed on an interactive chart using Chart.js.
-      </p>
-      <img src="images/Binance-GitHub-Graph.png" alt="Data Flow Diagram">
-
-      <h3>2. Simulated Trade</h3>
-      <p>
-        Enter an investment amount in the "Simulated Trade" section. The dashboard calculates the number of coins you could purchase based on the latest market prices, using data fetched from the Binance API.
-      </p>
+      <h2>Step 3: Configure the Dashboard</h2>
+      <ol>
+        <li>Open <strong>script.js</strong> in your project.</li>
+        <li>Update the API URL if needed:</li>
+        <pre><code>const BINANCE_API_URL = "https://api.binance.com/api/v3/ticker/price";</code></pre>
+        <li>Add your API key in the request headers:</li>
+        <pre><code>
+const response = await fetch(BINANCE_API_URL, {
+  headers: {
+    "X-MBX-APIKEY": "your-api-key-here",
+  },
+});
+        </code></pre>
+        <li>Save your changes and refresh the dashboard.</li>
+      </ol>
     </section>
 
-    <!-- Technology Stack -->
     <section>
-      <h2>Technology Stack</h2>
+      <h2>FAQ and Troubleshooting</h2>
       <ul>
-        <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
-        <li><strong>Charting Library:</strong> Chart.js</li>
-        <li><strong>Data Source:</strong> Binance API</li>
-        <li><strong>Styling:</strong> Custom CSS with responsive design</li>
+        <li>
+          <strong>Issue:</strong> API key not working.<br>
+          <strong>Solution:</strong> Ensure your API key has proper permissions or check IP restrictions.
+        </li>
+        <li>
+          <strong>Issue:</strong> Dashboard not displaying data.<br>
+          <strong>Solution:</strong> Verify the API endpoint and headers in <strong>script.js</strong>.
+        </li>
       </ul>
     </section>
-
-    <!-- Contact Information -->
-    <section>
-      <h2>Contact</h2>
-      <p>
-        For questions, feedback, or feature requests, feel free to contact us through GitHub or at <a href="mailto:gianpierofiorino@icloud.com">gianpierofiorino@icloud.com</a>.
-      </p>
-    </section>
   </main>
-    <footer style="background-color: #2A2A2A; padding: 1rem; text-align: center; margin-top: 2rem;">
-    <p style="color: #F5F5F5;">
-      &copy; 2025 Binance API Dashboard | 
-      <a href="mailto:gianpierofiorino@icloud.com" style="color: #F3BA2F; text-decoration: none;">Contact Us</a>
-    </p>
+
+  <footer>
+    <p>&copy; 2025 Binance API Dashboard | <a href="mailto:gianpierofiorino@icloud.com">Contact Us</a></p>
   </footer>
-   
 </body>
 </html>

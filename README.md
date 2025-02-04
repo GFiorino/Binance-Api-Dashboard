@@ -42,14 +42,15 @@ The **Binance API Dashboard** is a web-based application that enables users to t
 ### Steps to Run the Project Locally
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/Binance-API-Dashboard.git
-  ` ``
+   git clone https://github.com/yourusername/Binance-API-Dashboard.git```
+   
 2. Navigate to the project folder:
     ```bash
     cd Binance-API-Dashboard
     ```
 3. Open the index.html file in your browser.
 4. The dashboard will load automatically and display live cryptocurrency trends.
+
  ---
 
 ## Technology Stack
@@ -60,19 +61,6 @@ The **Binance API Dashboard** is a web-based application that enables users to t
 
 ---
 
-## Setup and Installation
-
-### Prerequisites
-- A modern web browser such as Chrome, Firefox, Edge, or Safari
-- An active internet connection
-
-### Steps to Run the Project Locally
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/Binance-API-Dashboard.git
-   ```
-   ---
-   
 How It Works
 📊 Real-Time Price Updates
 - Fetches live cryptocurrency prices from the Binance API.
@@ -83,6 +71,7 @@ How It Works
 💰 Simulated Trade
 - Users input an investment amount.
 - The system calculates and displays the equivalent amount of BTC, ETH, and BNB that could be purchased, using live market prices.
+  
   ---
   
 Future Enhancements

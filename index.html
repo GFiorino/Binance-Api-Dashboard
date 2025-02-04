@@ -8,12 +8,6 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav style="display: flex; justify-content: center; margin-bottom: 1rem; background-color: #121212; padding: 1rem; border-radius: 8px;">
-    <a href="index.html" style="margin-right: 1.5rem; color: #F3BA2F; text-decoration: none; font-weight: bold;">Dashboard</a>
-    <a href="documentation.html" style="color: #F5F5F5; text-decoration: none; font-weight: bold; padding: 0.5rem 1rem; background-color: #333; border-radius: 6px; border: 1px solid #444;">Documentation</a>
-  </nav>
-
   <div id="dashboard">
     <!-- Sidebar -->
     <div id="sidebar">
@@ -29,6 +23,10 @@
         </div>
         <p id="trade-result" style="margin-top: 1rem;">Enter an amount to simulate a trade.</p>
       </div>
+      <!-- Documentation Button -->
+      <div style="margin-top: auto; text-align: center;">
+        <a href="documentation.html" style="color: #F5F5F5; text-decoration: none; font-weight: bold; padding: 0.5rem 1rem; background-color: #333; border-radius: 6px; border: 1px solid #444; display: inline-block; margin-top: 1rem;">Documentation</a>
+      </div>
     </div>
 
     <!-- Main Content -->
@@ -43,7 +41,7 @@
           <option value="Last Year">1 Year</option>
         </select>
       </div>
-      <div id="chart-container" style="flex-grow: 1;">
+      <div id="chart-container">
         <canvas id="chart"></canvas>
       </div>
     </div>

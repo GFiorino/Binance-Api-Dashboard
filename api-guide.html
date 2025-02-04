@@ -6,23 +6,35 @@
   <title>API Guide - Binance Dashboard</title>
   <link rel="stylesheet" href="documentation.css">
   <style>
+    /* Navigation Styles */
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #2A2A2A;
+      padding: 1rem;
+      gap: 2rem;
+    }
+
     nav a {
       color: #F5F5F5;
       text-decoration: none;
       padding: 0.5rem 1rem;
       border-radius: 5px;
-      transition: background-color 0.3s ease;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav a.active {
+      background-color: #F3BA2F;
+      color: #1E1E1E;
     }
 
     nav a:hover {
       background-color: #333;
     }
 
-    nav .active {
-      background-color: #F3BA2F;
-      color: #1E1E1E;
-    }
-
+    /* Footer Styles */
     footer {
       text-align: center;
       padding: 1rem;
@@ -31,12 +43,51 @@
       margin-top: 2rem;
     }
 
+    footer a {
+      color: #F3BA2F;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Code Block Styles */
     pre {
       background-color: #2A2A2A;
       padding: 1rem;
       border-radius: 5px;
       color: #F3BA2F;
+      font-family: monospace;
       overflow-x: auto;
+    }
+
+    /* Main Content Styling */
+    main {
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h1, h2 {
+      color: #F3BA2F;
+    }
+
+    p, li {
+      line-height: 1.6;
+    }
+
+    a {
+      color: #F3BA2F;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>

@@ -83,13 +83,14 @@ Future Enhancements
 - Enhance charts with interactive tooltips and more detailed price information.
   
 🔗 Live Demo
-Explore the live version of the dashboard here:
-Binance API Dashboard Live
+   Explore the live version of the dashboard here:
+   Binance API Dashboard Live
 
 📩 Contact
 If you have any questions, suggestions, or feature requests, feel free to reach out through:
+   
+    GitHub: Gianpiero Fiorino
+    Email: gianpierofiorino@icloud.com
 
-GitHub: Gianpiero Fiorino
-Email: gianpierofiorino@icloud.com
 ⚡ Built for cryptocurrency enthusiasts and traders looking for quick insights and seamless interaction!
 

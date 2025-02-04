@@ -6,89 +6,54 @@
   <title>Binance API Dashboard Documentation</title>
   <link rel="stylesheet" href="documentation.css">
   <style>
+    /* Navigation Styles */
     header {
       background-color: #2A2A2A;
       padding: 1rem;
     }
 
-    header nav {
+    nav {
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
+      padding-left: 2rem;
       gap: 2rem;
     }
 
-    header nav a {
+    nav a {
       color: #F5F5F5;
       text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
       font-size: 1rem;
       font-weight: bold;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    header nav a.active {
+    nav a.active {
       background-color: #F3BA2F;
       color: #1E1E1E;
     }
 
-    header nav a:hover {
+    nav a:hover {
       background-color: #F3BA2F;
       color: #1E1E1E;
     }
 
-    main {
-      padding: 2rem;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    section {
-      margin-bottom: 2rem;
-    }
-
-    h1 {
+    /* Footer Styles */
+    footer {
       text-align: center;
-      color: #F3BA2F;
-      margin-bottom: 2rem;
-    }
-
-    h2 {
-      color: #F3BA2F;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      line-height: 1.6;
-    }
-
-    pre {
-      background-color: #2A2A2A;
       padding: 1rem;
-      border-radius: 6px;
+      background-color: #2A2A2A;
       color: #F5F5F5;
-      font-family: monospace;
+      margin-top: 2rem;
     }
 
-    ul, ol {
-      margin-left: 2rem;
-    }
-
-    img {
-      max-width: 70%;
-      height: auto;
-      margin: 2rem auto;
-      display: block;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    }
-
-    a {
+    footer a {
       color: #F3BA2F;
       text-decoration: none;
     }
 
-    a:hover {
+    footer a:hover {
       text-decoration: underline;
     }
   </style>
@@ -101,10 +66,10 @@
       <a href="api-guide.html">API Guide</a>
     </nav>
   </header>
+
   <main>
     <h1>Binance API Dashboard Documentation</h1>
 
-    <!-- Overview -->
     <section>
       <h2>Overview</h2>
       <p>
@@ -112,7 +77,6 @@
       </p>
     </section>
 
-    <!-- Features -->
     <section>
       <h2>Features</h2>
       <ul>
@@ -122,7 +86,6 @@
       </ul>
     </section>
 
-    <!-- Setup and Installation -->
     <section>
       <h2>Setup and Installation</h2>
       <p>Follow these steps to set up the Binance API Dashboard locally:</p>
@@ -137,7 +100,6 @@
       </ol>
     </section>
 
-    <!-- How It Works -->
     <section>
       <h2>How It Works</h2>
       <h3>1. Real-Time Price Updates</h3>
@@ -152,7 +114,6 @@
       </p>
     </section>
 
-    <!-- Technology Stack -->
     <section>
       <h2>Technology Stack</h2>
       <ul>
@@ -162,16 +123,9 @@
         <li><strong>Styling:</strong> Custom CSS with responsive design</li>
       </ul>
     </section>
-
-    <!-- Contact Information -->
-    <section>
-      <h2>Contact</h2>
-      <p>
-        For questions, feedback, or feature requests, feel free to contact us through GitHub or at <a href="mailto:gianpierofiorino@icloud.com">gianpierofiorino@icloud.com</a>.
-      </p>
-    </section>
   </main>
- <footer>
+
+  <footer>
     <p>&copy; 2025 Binance API Dashboard | <a href="mailto:gianpierofiorino@icloud.com">Contact Us</a></p>
   </footer>
 </body>

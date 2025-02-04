@@ -110,21 +110,3 @@ body {
   border-radius: 10px;
   position: relative; /* Constrain to parent container */
 }
-/* Documentation Button Styling */
-.dashboard-doc-button {
-    display: inline-block;
-    background-color: #F3BA2F;
-    color: #1E1E1E;
-    text-decoration: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.dashboard-doc-button:hover {
-    background-color: #FFD700; /* Lighter gold on hover */
-    transform: translateY(-2px); /* Slight hover effect */
-    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.4); /* Glow effect */
-}

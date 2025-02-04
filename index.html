@@ -8,6 +8,12 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+  <!-- Navigation -->
+  <nav style="display: flex; justify-content: center; margin-bottom: 1rem; background-color: #121212; padding: 1rem; border-radius: 8px;">
+    <a href="index.html" style="margin-right: 1.5rem; color: #F3BA2F; text-decoration: none; font-weight: bold;">Dashboard</a>
+    <a href="documentation.html" style="color: #F5F5F5; text-decoration: none; font-weight: bold; padding: 0.5rem 1rem; background-color: #333; border-radius: 6px; border: 1px solid #444;">Documentation</a>
+  </nav>
+
   <div id="dashboard">
     <!-- Sidebar -->
     <div id="sidebar">
@@ -17,23 +23,18 @@
       </div>
       <div class="card">
         <h2>Simulated Trade</h2>
-        <div class="input-container" style="display: flex; gap: 0.5rem; align-items: center; justify-content: center; margin-top: 0.5rem;">
-          <input id="investment-input" type="number" placeholder="Invest ($)" style="padding: 0.5rem; font-size: 0.95rem; color: #F5F5F5; background: #333; border: 1px solid #444; border-radius: 6px; width: 70%;">
+        <div class="input-container" style="display: flex; flex-direction: column; gap: 0.5rem; align-items: center; justify-content: center; margin-top: 0.5rem;">
+          <input id="investment-input" type="number" placeholder="Invest ($)" style="padding: 0.5rem; font-size: 0.95rem; color: #F5F5F5; background: #333; border: 1px solid #444; border-radius: 6px; width: 100%;">
           <button id="simulate-button" type="button" style="padding: 0.5rem; font-size: 0.95rem; color: #F5F5F5; background: #444; border: 1px solid #555; border-radius: 6px; cursor: pointer;">Simulate</button>
         </div>
         <p id="trade-result" style="margin-top: 1rem;">Enter an amount to simulate a trade.</p>
       </div>
-
-  <!-- Navigation -->
-<nav style="display: flex; justify-content: center; margin-bottom: 1rem;">
-  <a href="index.html" style="margin-right: 1.5rem; color: #F3BA2F; text-decoration: none; font-weight: bold;">Dashboard</a>
-  <a href="documentation.html" style="color: #F5F5F5; text-decoration: none; font-weight: bold; padding: 0.5rem 1rem; background-color: #333; border-radius: 6px; border: 1px solid #444;">Documentation</a>
-</nav>
+    </div>
 
     <!-- Main Content -->
     <div id="main-content">
-      <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-        <h2 class="chart-title" style="color: #F5F5F5; margin-right: 1rem;">Live Trends</h2>
+      <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; margin-bottom: 1rem;">
+        <h2 class="chart-title" style="color: #F5F5F5;">Live Trends</h2>
         <select id="timeframe-dropdown" style="padding: 0.5rem; font-size: 1rem; border-radius: 6px; background-color: #333; color: #F5F5F5; border: 1px solid #444; width: 150px;">
           <option value="Last 24h">Last 24h</option>
           <option value="Last Week">1 Week</option>
@@ -42,7 +43,7 @@
           <option value="Last Year">1 Year</option>
         </select>
       </div>
-      <div id="chart-container">
+      <div id="chart-container" style="flex-grow: 1;">
         <canvas id="chart"></canvas>
       </div>
     </div>

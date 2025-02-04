@@ -63,15 +63,15 @@ The **Binance API Dashboard** is a web-based application that enables users to t
 
 ## How It Works
 
-📊 # Real-Time Price Updates
+📊 ## Real-Time Price Updates
 - Fetches live cryptocurrency prices from the Binance API.
 - Dynamically updates the chart when users select different timeframes.
   
-📈 # Historical Data Visualization
+📈 ## Historical Data Visualization
 - Sends API requests for historical price data based on the selected timeframe.
 - Processes and visualizes the data using Chart.js, creating a normalized line chart for easy comparison.
   
-💰 # Simulated Trade
+💰 ## Simulated Trade
 - Users input an investment amount.
 - The system calculates and displays the equivalent amount of BTC, ETH, and BNB that could be purchased, using live market prices.
   

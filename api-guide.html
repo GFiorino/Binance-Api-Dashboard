@@ -7,11 +7,15 @@
   <link rel="stylesheet" href="documentation.css">
   <style>
     /* Navigation Styles */
-    nav {
-      display: flex;
-      justify-content: center;
+    header {
       background-color: #2A2A2A;
       padding: 1rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: flex-start;
+      padding-left: 2rem;
       gap: 2rem;
     }
 
@@ -31,7 +35,8 @@
     }
 
     nav a:hover {
-      background-color: #333;
+      background-color: #F3BA2F;
+      color: #1E1E1E;
     }
 
     /* Footer Styles */
@@ -51,44 +56,6 @@
     footer a:hover {
       text-decoration: underline;
     }
-
-    /* Code Block Styles */
-    pre {
-      background-color: #2A2A2A;
-      padding: 1rem;
-      border-radius: 5px;
-      color: #F3BA2F;
-      font-family: monospace;
-      overflow-x: auto;
-    }
-
-    /* Main Content Styling */
-    main {
-      padding: 2rem;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    section {
-      margin-bottom: 2rem;
-    }
-
-    h1, h2 {
-      color: #F3BA2F;
-    }
-
-    p, li {
-      line-height: 1.6;
-    }
-
-    a {
-      color: #F3BA2F;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
   </style>
 </head>
 <body>
@@ -101,27 +68,21 @@
   </header>
 
   <main>
-    <section>
-      <h1>API Guide: Getting Started with Binance API</h1>
-      <p>Follow this guide to register on Binance and obtain your API key for the Binance API Dashboard.</p>
-    </section>
+    <h1>API Guide: Getting Started with Binance API</h1>
 
     <section>
       <h2>Step 1: Register on Binance</h2>
       <ol>
         <li>Visit the <a href="https://www.binance.com" target="_blank">Binance website</a>.</li>
-        <li>Click on the <strong>Sign Up</strong> button.</li>
-        <li>Complete the registration form with your email and password.</li>
+        <li>Click on <strong>Sign Up</strong> and create an account.</li>
         <li>Verify your email and log in to your Binance account.</li>
       </ol>
-      <p><strong>Note:</strong> Complete identity verification (KYC) if required.</p>
     </section>
 
     <section>
       <h2>Step 2: Generate the API Key</h2>
       <ol>
-        <li>Log in to your Binance account.</li>
-        <li>Go to <strong>API Management</strong> in the account settings.</li>
+        <li>Log in to Binance and go to <strong>API Management</strong>.</li>
         <li>Click <strong>Create API</strong> and name your API key.</li>
         <li>Enable <strong>Read-Only</strong> permissions for security.</li>
         <li>Complete the security steps and save your API Key and Secret Key.</li>

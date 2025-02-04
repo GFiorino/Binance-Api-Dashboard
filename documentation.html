@@ -5,16 +5,103 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Binance API Dashboard Documentation</title>
   <link rel="stylesheet" href="documentation.css">
+  <style>
+    header {
+      background-color: #2A2A2A;
+      padding: 1rem;
+    }
+
+    header nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    header nav a {
+      color: #F5F5F5;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    header nav a.active {
+      background-color: #F3BA2F;
+      color: #1E1E1E;
+    }
+
+    header nav a:hover {
+      background-color: #F3BA2F;
+      color: #1E1E1E;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #F3BA2F;
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      color: #F3BA2F;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    pre {
+      background-color: #2A2A2A;
+      padding: 1rem;
+      border-radius: 6px;
+      color: #F5F5F5;
+      font-family: monospace;
+    }
+
+    ul, ol {
+      margin-left: 2rem;
+    }
+
+    img {
+      max-width: 70%;
+      height: auto;
+      margin: 2rem auto;
+      display: block;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    a {
+      color: #F3BA2F;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <header style="background-color: #2A2A2A; padding: 1rem; text-align: center;">
+  <header>
     <nav>
-      <a href="index.html" style="margin-right: 1rem; color: #F3BA2F; text-decoration: none;">Dashboard</a>
-      <a href="documentation.html" class="active" style="color: #F5F5F5; text-decoration: none;">Documentation</a>
+      <a href="index.html">Dashboard</a>
+      <a href="documentation.html" class="active">Documentation</a>
     </nav>
   </header>
-  <main style="padding: 2rem;">
-    <h1 style="text-align: center; color: #F3BA2F;">Binance API Dashboard Documentation</h1>
+  <main>
+    <h1>Binance API Dashboard Documentation</h1>
 
     <!-- Overview -->
     <section>
@@ -56,8 +143,7 @@
       <p>
         The dashboard fetches live prices for Bitcoin, Ethereum, and Binance Coin from the Binance API. Historical data is retrieved for the selected timeframe (e.g., 24 hours, 1 week, 1 month) and displayed on an interactive chart using Chart.js.
       </p>
-      <!-- Placeholder for image or diagram -->
-     <img src="images/Binance-GitHub-Graph.png" style="max-width: 50%; height: auto; margin: 1rem auto; display: block;">
+      <img src="images/Binance-GitHub-Graph.png" alt="Data Flow Diagram">
 
       <h3>2. Simulated Trade</h3>
       <p>

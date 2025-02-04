@@ -133,4 +133,14 @@ section {
   img {
     max-width: 100%;
   }
+  
+  img {
+  display: block;
+  margin: 1rem auto;
+  max-width: 90%; /* Increase size slightly */
+  height: auto; /* Maintain aspect ratio */
+  width: 600px; /* Set a fixed width */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
+

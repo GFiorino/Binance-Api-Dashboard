@@ -3,15 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>API Guide - Binance Dashboard</title>
+  <title>Binance API Dashboard Documentation</title>
   <link rel="stylesheet" href="documentation.css">
   <style>
     /* Navigation Styles */
-    nav {
-      display: flex;
-      justify-content: center;
+    header {
       background-color: #2A2A2A;
       padding: 1rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: flex-start;
+      padding-left: 2rem;
       gap: 2rem;
     }
 
@@ -31,7 +35,8 @@
     }
 
     nav a:hover {
-      background-color: #333;
+      background-color: #F3BA2F;
+      color: #1E1E1E;
     }
 
     /* Footer Styles */
@@ -51,112 +56,43 @@
     footer a:hover {
       text-decoration: underline;
     }
-
-    /* Code Block Styles */
-    pre {
-      background-color: #2A2A2A;
-      padding: 1rem;
-      border-radius: 5px;
-      color: #F3BA2F;
-      font-family: monospace;
-      overflow-x: auto;
-    }
-
-    /* Main Content Styling */
-    main {
-      padding: 2rem;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    section {
-      margin-bottom: 2rem;
-    }
-
-    h1, h2 {
-      color: #F3BA2F;
-    }
-
-    p, li {
-      line-height: 1.6;
-    }
-
-    a {
-      color: #F3BA2F;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
   </style>
 </head>
 <body>
   <header>
     <nav>
       <a href="index.html">Dashboard</a>
-      <a href="documentation.html">Documentation</a>
-      <a href="api-guide.html" class="active">API Guide</a>
+      <a href="documentation.html" class="active">Documentation</a>
+      <a href="api-guide.html">API Guide</a>
     </nav>
   </header>
 
   <main>
+    <h1>Binance API Dashboard Documentation</h1>
+
     <section>
-      <h1>API Guide: Getting Started with Binance API</h1>
-      <p>Follow this guide to register on Binance and obtain your API key for the Binance API Dashboard.</p>
+      <h2>Overview</h2>
+      <p>
+        The <strong>Binance API Dashboard</strong> is a dynamic web application that enables cryptocurrency enthusiasts and traders to monitor live trends and simulate cryptocurrency trades. Powered by the Binance API, this tool provides valuable insights into Bitcoin (BTC), Ethereum (ETH), and Binance Coin (BNB) price movements.
+      </p>
     </section>
 
     <section>
-      <h2>Step 1: Register on Binance</h2>
-      <ol>
-        <li>Visit the <a href="https://www.binance.com" target="_blank">Binance website</a>.</li>
-        <li>Click on the <strong>Sign Up</strong> button.</li>
-        <li>Complete the registration form with your email and password.</li>
-        <li>Verify your email and log in to your Binance account.</li>
-      </ol>
-      <p><strong>Note:</strong> Complete identity verification (KYC) if required.</p>
-    </section>
-
-    <section>
-      <h2>Step 2: Generate the API Key</h2>
-      <ol>
-        <li>Log in to your Binance account.</li>
-        <li>Go to <strong>API Management</strong> in the account settings.</li>
-        <li>Click <strong>Create API</strong> and name your API key.</li>
-        <li>Enable <strong>Read-Only</strong> permissions for security.</li>
-        <li>Complete the security steps and save your API Key and Secret Key.</li>
-      </ol>
-    </section>
-
-    <section>
-      <h2>Step 3: Configure the Dashboard</h2>
-      <ol>
-        <li>Open <strong>script.js</strong> in your project.</li>
-        <li>Update the API URL if needed:</li>
-        <pre><code>const BINANCE_API_URL = "https://api.binance.com/api/v3/ticker/price";</code></pre>
-        <li>Add your API key in the request headers:</li>
-        <pre><code>
-const response = await fetch(BINANCE_API_URL, {
-  headers: {
-    "X-MBX-APIKEY": "your-api-key-here",
-  },
-});
-        </code></pre>
-        <li>Save your changes and refresh the dashboard.</li>
-      </ol>
-    </section>
-
-    <section>
-      <h2>FAQ and Troubleshooting</h2>
+      <h2>Features</h2>
       <ul>
-        <li>
-          <strong>Issue:</strong> API key not working.<br>
-          <strong>Solution:</strong> Ensure your API key has proper permissions or check IP restrictions.
-        </li>
-        <li>
-          <strong>Issue:</strong> Dashboard not displaying data.<br>
-          <strong>Solution:</strong> Verify the API endpoint and headers in <strong>script.js</strong>.
-        </li>
+        <li><strong>Live Cryptocurrency Trends:</strong> Real-time price updates and historical trends displayed in an interactive chart.</li>
+        <li><strong>Simulated Trade:</strong> Enter an investment amount to calculate how much of each cryptocurrency you could purchase.</li>
+        <li><strong>Interactive Interface:</strong> Easy-to-use dropdowns for selecting timeframes.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Technology Stack</h2>
+      <ul>
+        <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
+        <li><strong>Charting Library:</strong> Chart.js</li>
+        <li><strong>Data Source:</strong> Binance API</li>
+        <li><strong>Styling:</strong> Custom CSS</li>
       </ul>
     </section>
   </main>

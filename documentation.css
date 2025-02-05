@@ -57,14 +57,23 @@ code {
 }
 
 /* Images - Consistent Sizing */
-img {
+.documentation-image {
   display: block;
-  margin: 1rem auto;
-  max-width: 90%; /* Increase size slightly */
+  margin: 1.5rem auto;
+  max-width: 85%;
+  width: 650px; /* Fixed width for consistency */
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Specific Style for Dashboard Image */
+.dashboard-image {
+  max-width: 90%; /* Slightly larger than default */
+  width: 700px; /* Making it larger */
   height: auto; /* Maintain aspect ratio */
-  width: 600px; /* Set a fixed width */
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
 
 /* Links */
@@ -160,9 +169,9 @@ footer a:hover {
     max-width: 100%;
     width: auto; /* Ensure it scales properly on smaller screens */
   }
-.dashboard-image {
-  width: 110%; /* Slightly bigger */
-  max-width: 600px; /* Prevents excessive stretching */
-}
-  
+
+  .dashboard-image {
+    width: 110%; /* Slightly bigger */
+    max-width: 700px; /* Prevents excessive stretching */
+  }
 }

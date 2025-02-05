@@ -97,30 +97,46 @@
   </header>
 
   <main> 
-    <h1>API Guide: Getting Started with Binance API</h1>
+    <h1>API Guide: Public vs Private Endpoints</h1>
 
     <section>
-      <h2>Process Overview</h2>
+      <h2>Understanding Public & Private Binance API Endpoints</h2>
+      <p>
+        The Binance API provides both **public** and **private** endpoints, each serving different purposes.
+      </p>
+      <ul>
+        <li><strong>Public Endpoints</strong> (Used in our Dashboard)  
+          ✅ No authentication required  
+          ✅ Provides real-time market data  
+          ✅ Example: Fetching current price trends for BTC, ETH, and BNB</li>
+        <li><strong>Private Endpoints</strong> (Requires an API Key)  
+          🔒 Requires authentication (API Key & Secret Key)  
+          🔒 Allows access to user-specific data (balances, trade history)  
+          🔒 Enables order execution and trade automation</li>
+      </ul>
+      <p>
+        Our Binance API Dashboard uses **only public endpoints**, meaning users do not need to register or provide an API key. However, if you want to access account-related data, you will need to generate an API key. Learn how below.  
+      </p>
+    </section>
+
+    <section>
+      <h2>Process Overview for Private API Access</h2>
       <div class="process-overview">
         <div class="process-step">
           <span class="step-icon">1️⃣</span>
-          <p class="step-text"><strong>User Registers on Binance</strong> → Creates API Key</p>
+          <p class="step-text"><strong>Register on Binance</strong> → Create an account</p>
         </div>
         <div class="process-step">
           <span class="step-icon">2️⃣</span>
-          <p class="step-text"><strong>User Retrieves API Key</strong> → Copies and saves it securely</p>
+          <p class="step-text"><strong>Generate an API Key</strong> → Found in Binance API Management</p>
         </div>
         <div class="process-step">
           <span class="step-icon">3️⃣</span>
-          <p class="step-text"><strong>User Adds API Key to the Project</strong> → Updates <code>script.js</code></p>
+          <p class="step-text"><strong>Add API Key to Your Code</strong> → Securely update <code>script.js</code></p>
         </div>
         <div class="process-step">
           <span class="step-icon">4️⃣</span>
-          <p class="step-text"><strong>Dashboard Connects to Binance API</strong> → Fetches Live Data</p>
-        </div>
-        <div class="process-step">
-          <span class="step-icon">5️⃣</span>
-          <p class="step-text"><strong>Live Data Feeds into Chart.js</strong> → Updates the Graph in Real-Time</p>
+          <p class="step-text"><strong>Authenticate API Requests</strong> → Use API Key to fetch private data</p>
         </div>
       </div>
     </section>
@@ -130,29 +146,33 @@
       <ol>
         <li>Visit the <a href="https://www.binance.com" target="_blank">Binance website</a>.</li>
         <li>Click on <strong>Sign Up</strong> and create an account.</li>
-        <li>Verify your email and log in to your Binance account.</li>
+        <li>Verify your email and complete any required KYC verification.</li>
       </ol>
     </section>
 
     <section>
-      <h2>Step 2: Generate the API Key</h2>
+      <h2>Step 2: Generate an API Key</h2>
       <ol>
         <li>Log in to Binance and go to <strong>API Management</strong>.</li>
-        <li>Click <strong>Create API</strong> and name your API key.</li>
-        <li>Enable <strong>Read-Only</strong> permissions for security.</li>
-        <li>Complete the security steps and save your API Key and Secret Key.</li>
+        <li>Click <strong>Create API</strong> and give it a name (e.g., "DashboardAccess").</li>
+        <li>Enable the following permissions:</li>
+        <ul>
+          <li>✔️ <strong>Read-Only</strong> (for retrieving account balances and trade history)</li>
+          <li>✔️ <strong>Trading Access</strong> (only if placing orders via API)</li>
+        </ul>
+        <li>Complete the security verification process and save your **API Key** and **Secret Key** securely.</li>
       </ol>
     </section>
 
     <section>
-      <h2>Step 3: Configure the Dashboard</h2>
+      <h2>Step 3: Using Your API Key in the Dashboard</h2>
       <ol>
         <li>Open <strong>script.js</strong> in your project.</li>
         <li>Update the API URL if needed:</li>
         <pre><code>const BINANCE_API_URL = "https://api.binance.com/api/v3/ticker/price";</code></pre>
-        <li>Add your API key in the request headers:</li>
+        <li>To make requests using a private endpoint, include your API Key in the request headers:</li>
         <pre><code>
-const response = await fetch(BINANCE_API_URL, {
+const response = await fetch("https://api.binance.com/api/v3/account", {
   headers: {
     "X-MBX-APIKEY": "your-api-key-here",
   },
@@ -170,19 +190,19 @@ const response = await fetch(BINANCE_API_URL, {
           <strong>Solution:</strong> Ensure your API key has proper permissions or check IP restrictions.
         </li>
         <li>
-          <strong>Issue:</strong> Dashboard not displaying data.<br>
-          <strong>Solution:</strong> Verify the API endpoint and headers in <strong>script.js</strong>.
+          <strong>Issue:</strong> Dashboard not displaying private data.<br>
+          <strong>Solution:</strong> Confirm that you're using a **private endpoint** and your API key is included correctly.
         </li>
       </ul>
     </section>
   </main>
 
- <footer>
-    <p>&copy; 2025 Binance API Dashboard | 
+  <footer>
+    <p>&copy; 2025 Binance API Dashboard |  
     <a href="https://gfiorino.github.io/Technical-Writing-Portfolio/" style="color: #F3BA2F; text-decoration: none; font-weight: bold;">
         Back to Live Portfolio
     </a>
     </p>
-</footer>
+  </footer>
 </body>
 </html>

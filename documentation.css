@@ -160,4 +160,9 @@ footer a:hover {
     max-width: 100%;
     width: auto; /* Ensure it scales properly on smaller screens */
   }
+.dashboard-image {
+  width: 110%; /* Slightly bigger */
+  max-width: 600px; /* Prevents excessive stretching */
+}
+  
 }

@@ -102,3 +102,9 @@ If you have any questions, suggestions, or feature requests, feel free to reach 
 
 ⚡ Built for cryptocurrency enthusiasts and traders looking for quick insights and seamless interaction!
 
+## 📖 Related Article
+
+Want to learn more about how I built this Binance Dashboard using ChatGPT and GitHub?  
+Check out my **Medium article** explaining the process step by step:
+
+👉 [AI, Crypto, and Zero Coding Skills Walk Into a Bar…Boom!](https://medium.com/@gianpierofiorino/ai-crypto-and-zero-coding-skills-walk-into-a-bar-boom-1aefd85a2a22)
